@@ -1,6 +1,7 @@
 package com.br.ssmup.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
@@ -32,6 +33,7 @@ public class Empresa {
     private String subAtividade;
 
     @Column(name = "data_inicio_funcionamento",  nullable = false)
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataInicioFuncionamento;
 
     @Column(nullable = false)
@@ -162,5 +164,12 @@ public class Empresa {
     @PrePersist
     public void prePersist(){
         this.ativo = true;
+    }
+
+    public void adicionarEndereco(Endereco endereco) {
+        this.endereco = endereco;
+        if (endereco != null) {
+            endereco.setEmpresa(this);
+        }
     }
 }
