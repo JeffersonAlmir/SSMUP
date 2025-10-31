@@ -7,6 +7,7 @@ import com.br.ssmup.dto.LicensaSanitariaResponseDto;
 import com.br.ssmup.entities.Empresa;
 import com.br.ssmup.entities.LicensaSanitaria;
 import com.br.ssmup.entities.Responsavel;
+import com.br.ssmup.exceptions.ResourceNotFoundException;
 import com.br.ssmup.mapper.EmpresaMapper;
 import com.br.ssmup.repository.EmpresaRepository;
 import com.br.ssmup.repository.LicensaSanitariaRepository;
@@ -42,25 +43,19 @@ public class EmpresaService {
     }
 
     public EmpresaResponseDto getEmpresaById(Long id) {
-        Empresa empresa = empresaRepository.findById(id).orElse(null);
-        if(empresa == null) {
-            throw new RuntimeException("Empresa not found");
-        }
+        Empresa empresa = empresaRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Empresa não encontrada"));
         return mapperService.empresaToDto(empresa);
     }
 
     public void  deleteByIdEmpresa(Long id) {
         if(!empresaRepository.existsById(id)) {
-            throw new RuntimeException("Empresa not found");
+            throw new ResourceNotFoundException("Empresa não encontrada");
         }
         empresaRepository.deleteById(id);
     }
 
     public LicensaSanitariaResponseDto saveLicensaSanitaria(Long id, LicensaSanitariaCadastroDto dto) {
-        Empresa empresa = empresaRepository.findById(id).orElse(null);
-        if(empresa == null) {
-            throw new RuntimeException("Empresa not found");
-        }
+        Empresa empresa = empresaRepository.findById(id).orElseThrow(()-> new  ResourceNotFoundException("Empresa não encontrada"));
         LicensaSanitaria newLicensa = new LicensaSanitaria();
         newLicensa.setNumControle(dto.numControle());
         newLicensa.setEmpresa(empresa);
@@ -69,11 +64,7 @@ public class EmpresaService {
     }
 
     public List<LicensaSanitariaResponseDto> listarLicensasSanitarias(Long id) {
-        Empresa empresa = empresaRepository.findById(id).orElse(null);
-        if(empresa == null) {
-            throw new RuntimeException("Empresa not found");
-        }
-
+        Empresa empresa = empresaRepository.findById(id).orElseThrow(()-> new  ResourceNotFoundException("Empresa não encontrada"));
         return empresa.getLicensasSanitarias().stream()
                 .map(l -> mapperService.licensaToDto(l))
                 .toList();
