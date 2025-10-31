@@ -41,6 +41,14 @@ public class EmpresaService {
                 .toList();
     }
 
+    public EmpresaResponseDto getEmpresaById(Long id) {
+        Empresa empresa = empresaRepository.findById(id).orElse(null);
+        if(empresa == null) {
+            throw new RuntimeException("Empresa not found");
+        }
+        return mapperService.empresaToDto(empresa);
+    }
+
     public void  deleteByIdEmpresa(Long id) {
         empresaRepository.deleteById(id);
     }

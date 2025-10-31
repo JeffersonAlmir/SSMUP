@@ -27,6 +27,11 @@ public class EmpresaController {
         return ResponseEntity.ok().body(empresaService.listarEmpresas());
     }
 
+    @GetMapping({"{id}"})
+    public ResponseEntity<EmpresaResponseDto> getEmpresa(@PathVariable Long id) {
+        return ResponseEntity.ok().body(empresaService.getEmpresaById(id));
+    }
+
     @PostMapping
     public ResponseEntity<EmpresaResponseDto> postEmpresas(@RequestBody @Valid EmpresaCadastroDto payload){
         return ResponseEntity.status(HttpStatus.CREATED).body(empresaService.saveEmpresa(payload));
