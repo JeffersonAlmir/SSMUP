@@ -50,6 +50,9 @@ public class EmpresaService {
     }
 
     public void  deleteByIdEmpresa(Long id) {
+        if(!empresaRepository.existsById(id)) {
+            throw new RuntimeException("Empresa not found");
+        }
         empresaRepository.deleteById(id);
     }
 

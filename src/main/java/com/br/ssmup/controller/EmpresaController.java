@@ -37,6 +37,12 @@ public class EmpresaController {
         return ResponseEntity.status(HttpStatus.CREATED).body(empresaService.saveEmpresa(payload));
     }
 
+    @DeleteMapping("{id}")
+    public ResponseEntity<Void> deleteEmpresa(@PathVariable Long id){
+        empresaService.deleteByIdEmpresa(id);
+        return ResponseEntity.noContent().build();
+    }
+
     @GetMapping("{id}/licensasSanitarias")
     public ResponseEntity<List<LicensaSanitariaResponseDto>> getAllLicensasSanitarias(@PathVariable Long id){
         return ResponseEntity.ok().body(empresaService.listarLicensasSanitarias(id));
