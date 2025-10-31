@@ -1,5 +1,7 @@
 package com.br.ssmup.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.time.LocalDate;
 
 public record EmpresaResponseDto(
@@ -10,6 +12,7 @@ public record EmpresaResponseDto(
         String inscricaoEstadual,
         String atividadeFirma,
         String subAtividade,
+        @JsonFormat(pattern = "dd/MM/yyyy")
         LocalDate dataInicioFuncionamento,
         boolean ativo,
         EnderecoResponseDto endereco,

@@ -1,6 +1,8 @@
 package com.br.ssmup.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;
 
 import java.time.LocalDate;
@@ -17,8 +19,9 @@ public record EmpresaCadastroDto(
         String atividadeFirma,
         @NotBlank
         String subAtividade,
-        @NotBlank
+        @NotNull
         @PastOrPresent
+        @JsonFormat(pattern = "dd/MM/yyyy")
         LocalDate dataInicioFuncionamento,
         EnderecoCadastroDto enderecoCadastroDto,
         ResponsavelCadastroDto responsavelCadastroDto

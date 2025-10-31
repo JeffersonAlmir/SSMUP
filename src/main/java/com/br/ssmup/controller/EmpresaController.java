@@ -1,8 +1,11 @@
 package com.br.ssmup.controller;
 
+import com.br.ssmup.dto.EmpresaCadastroDto;
+import com.br.ssmup.dto.EmpresaResponseDto;
 import com.br.ssmup.entities.Empresa;
 import com.br.ssmup.entities.LicensaSanitaria;
 import com.br.ssmup.service.EmpresaService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,14 +23,15 @@ public class EmpresaController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Empresa>> findAll(){
-        List<Empresa> empresas = empresaService.findAll();
-        return ResponseEntity.ok().body(empresas);
+    public ResponseEntity<List<EmpresaResponseDto>> findAll(){
+        return ResponseEntity.ok().body(empresaService.listarEmpresas());
     }
 
+
+
     @PostMapping
-    public ResponseEntity<Empresa> save(@RequestBody Empresa empresa){
-        return ResponseEntity.status(HttpStatus.CREATED).body(empresaService.saveEmpresa(empresa));
+    public ResponseEntity<EmpresaResponseDto> save(@RequestBody @Valid EmpresaCadastroDto payload){
+        return ResponseEntity.status(HttpStatus.CREATED).body(empresaService.saveEmpresa(payload));
     }
 
     @PostMapping("{id}/licensasSanitarias")
