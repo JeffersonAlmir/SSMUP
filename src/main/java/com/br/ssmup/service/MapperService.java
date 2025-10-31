@@ -2,11 +2,14 @@ package com.br.ssmup.service;
 
 import com.br.ssmup.dto.EmpresaCadastroDto;
 import com.br.ssmup.dto.EmpresaResponseDto;
+import com.br.ssmup.dto.LicensaSanitariaResponseDto;
 import com.br.ssmup.dto.ResponsavelCadastroDto;
 import com.br.ssmup.entities.Empresa;
+import com.br.ssmup.entities.LicensaSanitaria;
 import com.br.ssmup.entities.Responsavel;
 import com.br.ssmup.mapper.EmpresaMapper;
 import com.br.ssmup.mapper.EnderecoMapper;
+import com.br.ssmup.mapper.LicensaSanitariaMapper;
 import com.br.ssmup.mapper.ResponsavelMapper;
 import org.springframework.stereotype.Service;
 
@@ -16,14 +19,16 @@ public class MapperService {
     private final EmpresaMapper empresaMapper;
     private final EnderecoMapper enderecoMapper;
     private final ResponsavelMapper responsavelMapper;
+    private final LicensaSanitariaMapper  licensaSanitariaMapper;
 
-    public MapperService(EmpresaMapper empresaMapper, EnderecoMapper enderecoMapper, ResponsavelMapper responsavelMapper) {
+    public MapperService(EmpresaMapper empresaMapper, EnderecoMapper enderecoMapper, ResponsavelMapper responsavelMapper, LicensaSanitariaMapper licensaSanitariaMapper) {
         this.empresaMapper = empresaMapper;
         this.enderecoMapper = enderecoMapper;
         this.responsavelMapper = responsavelMapper;
+        this.licensaSanitariaMapper = licensaSanitariaMapper;
     }
 
-    //Utilizado no metodo POST
+    //Utilizado no metodo POST de empresa
     public Empresa dtoToEmpresa(EmpresaCadastroDto dto) {
         Empresa empresa = empresaMapper.empresaCadastroDtoToEmpresa(dto);
         empresa.adicionarEndereco(enderecoMapper.enderecoCadastroDtoToEndereco(dto.enderecoCadastroDto()));
@@ -31,10 +36,12 @@ public class MapperService {
         return empresa;
     }
 
-    //Utilizado no metodo GET
+    //Utilizado no metodo GET de empresa
     public EmpresaResponseDto  empresaToDto(Empresa empresa) {
         return empresaMapper.empresaToEmpresaResponseDto(empresa);
     }
 
-
+    public LicensaSanitariaResponseDto licensaToDto(LicensaSanitaria licensa) {
+        return licensaSanitariaMapper.licensaToLicensaSanitariaResponseDto(licensa);
+    }
 }

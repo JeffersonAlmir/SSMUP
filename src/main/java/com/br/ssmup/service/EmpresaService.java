@@ -2,6 +2,8 @@ package com.br.ssmup.service;
 
 import com.br.ssmup.dto.EmpresaCadastroDto;
 import com.br.ssmup.dto.EmpresaResponseDto;
+import com.br.ssmup.dto.LicensaSanitariaCadastroDto;
+import com.br.ssmup.dto.LicensaSanitariaResponseDto;
 import com.br.ssmup.entities.Empresa;
 import com.br.ssmup.entities.LicensaSanitaria;
 import com.br.ssmup.entities.Responsavel;
@@ -39,21 +41,31 @@ public class EmpresaService {
                 .toList();
     }
 
-    public Empresa findByIdEmpresa(Long id) {
-        return empresaRepository.findById(id).orElse(null);
-    }
-
     public void  deleteByIdEmpresa(Long id) {
         empresaRepository.deleteById(id);
     }
 
-    public LicensaSanitaria saveLicensaSanitaria(Long id, LicensaSanitaria licensa) {
+    public LicensaSanitariaResponseDto saveLicensaSanitaria(Long id, LicensaSanitariaCadastroDto dto) {
         Empresa empresa = empresaRepository.findById(id).orElse(null);
         if(empresa == null) {
             throw new RuntimeException("Empresa not found");
         }
-        licensa.setEmpresa(empresa);
-        return licensaSanitariaRepository.save(licensa);
+        LicensaSanitaria newLicensa = new LicensaSanitaria();
+        newLicensa.setNumControle(dto.numControle());
+        newLicensa.setEmpresa(empresa);
+        licensaSanitariaRepository.save(newLicensa);
+        return mapperService.licensaToDto(newLicensa);
+    }
+
+    public List<LicensaSanitariaResponseDto> listarLicensasSanitarias(Long id) {
+        Empresa empresa = empresaRepository.findById(id).orElse(null);
+        if(empresa == null) {
+            throw new RuntimeException("Empresa not found");
+        }
+
+        return empresa.getLicensasSanitarias().stream()
+                .map(l -> mapperService.licensaToDto(l))
+                .toList();
     }
 
 }

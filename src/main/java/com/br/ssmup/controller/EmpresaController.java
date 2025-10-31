@@ -2,8 +2,8 @@ package com.br.ssmup.controller;
 
 import com.br.ssmup.dto.EmpresaCadastroDto;
 import com.br.ssmup.dto.EmpresaResponseDto;
-import com.br.ssmup.entities.Empresa;
-import com.br.ssmup.entities.LicensaSanitaria;
+import com.br.ssmup.dto.LicensaSanitariaCadastroDto;
+import com.br.ssmup.dto.LicensaSanitariaResponseDto;
 import com.br.ssmup.service.EmpresaService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -23,19 +23,22 @@ public class EmpresaController {
     }
 
     @GetMapping
-    public ResponseEntity<List<EmpresaResponseDto>> findAll(){
+    public ResponseEntity<List<EmpresaResponseDto>> getAllEmpresas() {
         return ResponseEntity.ok().body(empresaService.listarEmpresas());
     }
 
-
-
     @PostMapping
-    public ResponseEntity<EmpresaResponseDto> save(@RequestBody @Valid EmpresaCadastroDto payload){
+    public ResponseEntity<EmpresaResponseDto> postEmpresas(@RequestBody @Valid EmpresaCadastroDto payload){
         return ResponseEntity.status(HttpStatus.CREATED).body(empresaService.saveEmpresa(payload));
     }
 
+    @GetMapping("{id}/licensasSanitarias")
+    public ResponseEntity<List<LicensaSanitariaResponseDto>> getAllLicensasSanitarias(@PathVariable Long id){
+        return ResponseEntity.ok().body(empresaService.listarLicensasSanitarias(id));
+    }
+
     @PostMapping("{id}/licensasSanitarias")
-    public ResponseEntity<LicensaSanitaria> saveLincensaSanitaria(@PathVariable Long id, @RequestBody LicensaSanitaria licensa){
-        return ResponseEntity.status(HttpStatus.CREATED).body(empresaService.saveLicensaSanitaria(id,licensa));
+    public ResponseEntity<LicensaSanitariaResponseDto> saveLincensaSanitaria(@PathVariable Long id, @RequestBody LicensaSanitariaCadastroDto payload){
+        return ResponseEntity.status(HttpStatus.CREATED).body(empresaService.saveLicensaSanitaria(id,payload));
     }
 }
