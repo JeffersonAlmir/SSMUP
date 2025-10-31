@@ -9,6 +9,8 @@ public record EmpresaCadastroDto(
         @NotBlank
         String razaoSocial,
         @NotBlank
+        String nomeFantasia,
+        @NotBlank
         String cpfCnpj,
         String inscricaoEstadual,
         @NotBlank

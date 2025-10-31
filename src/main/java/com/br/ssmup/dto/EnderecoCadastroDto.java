@@ -11,6 +11,7 @@ public record EnderecoCadastroDto(
         String numero,
         @NotBlank
         String bairro,
+        @NotBlank
         String cep,
         @NotBlank
         String municipio,

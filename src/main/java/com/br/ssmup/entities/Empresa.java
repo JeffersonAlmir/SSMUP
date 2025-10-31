@@ -20,6 +20,9 @@ public class Empresa {
     @Column(name = "razao_social", nullable = false)
     private String razaoSocial;
 
+    @Column(name = "nome_fantasia", nullable = false)
+    private String nomeFantasia;
+
     @Column(name = "cpf_cnpj", nullable = false, unique = true)
     private String cpfCnpj;
 
@@ -59,18 +62,20 @@ public class Empresa {
     public Empresa() {
     }
 
-    public Empresa(Long id, String razaoSocial, String cpfCnpj, String inscricaoEstadual, String atividadeFirma, String subAtividade, LocalDate dataInicioFuncionamento, boolean ativo, Responsavel responsavel, Endereco endereco, List<LicensaSanitaria> licensasSanitarias) {
-        this.id = id;
+    public Empresa(String razaoSocial, String nomeFantasia, Long id, String cpfCnpj, String inscricaoEstadual, String atividadeFirma, String subAtividade, Responsavel responsavel, LocalDate dataInicioFuncionamento, boolean ativo, Endereco endereco, List<LicensaSanitaria> licensasSanitarias, Localizacao localizacao) {
         this.razaoSocial = razaoSocial;
+        this.nomeFantasia = nomeFantasia;
+        this.id = id;
         this.cpfCnpj = cpfCnpj;
         this.inscricaoEstadual = inscricaoEstadual;
         this.atividadeFirma = atividadeFirma;
         this.subAtividade = subAtividade;
+        this.responsavel = responsavel;
         this.dataInicioFuncionamento = dataInicioFuncionamento;
         this.ativo = ativo;
-        this.responsavel = responsavel;
         this.endereco = endereco;
         this.licensasSanitarias = licensasSanitarias;
+        this.localizacao = localizacao;
     }
 
     public Long getId() {
@@ -87,6 +92,14 @@ public class Empresa {
 
     public void setRazaoSocial(String razaoSocial) {
         this.razaoSocial = razaoSocial;
+    }
+
+    public String getNomeFantasia() {
+        return nomeFantasia;
+    }
+
+    public void setNomeFantasia(String nomeFantasia) {
+        this.nomeFantasia = nomeFantasia;
     }
 
     public String getCpfCnpj() {
@@ -159,6 +172,14 @@ public class Empresa {
 
     public void setLicensasSanitarias(List<LicensaSanitaria> licensasSanitarias) {
         this.licensasSanitarias = licensasSanitarias;
+    }
+
+    public Localizacao getLocalizacao() {
+        return localizacao;
+    }
+
+    public void setLocalizacao(Localizacao localizacao) {
+        this.localizacao = localizacao;
     }
 
     @PrePersist
