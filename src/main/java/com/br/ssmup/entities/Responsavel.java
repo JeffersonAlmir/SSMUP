@@ -21,23 +21,22 @@ public class Responsavel {
     @Column(unique = true, nullable = false)
     private String email;
 
-    @CPF
     @Column(unique = true, nullable = false)
     private String cpf;
 
     @Column(nullable = false)
     private String rg;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String escolaridade;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String formacao;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String especializacao;
 
-    @Column(name = "registro_conselho", nullable = false)
+    @Column(name = "registro_conselho", nullable = true)
     private String registroConselho;
 
     @OneToMany(mappedBy = "responsavel")

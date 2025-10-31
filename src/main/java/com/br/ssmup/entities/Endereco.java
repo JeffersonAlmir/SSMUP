@@ -1,5 +1,6 @@
 package com.br.ssmup.entities;
 
+import com.br.ssmup.enums.UnidadeFederativa;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
@@ -30,15 +31,16 @@ public class Endereco {
     @Column(nullable = false)
     private String municipio;
 
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private String uf;
+    private UnidadeFederativa uf;
 
     @Column(nullable = false)
     private String telefone;
 
     public Endereco() {}
 
-    public Endereco(Long id, Empresa empresa, String rua, String numero, String bairro, String cep, String municipio, String uf, String telefone) {
+    public Endereco(Long id, Empresa empresa, String rua, String numero, String bairro, String cep, String municipio, UnidadeFederativa uf, String telefone) {
         this.id = id;
         this.empresa = empresa;
         this.rua = rua;
@@ -106,11 +108,11 @@ public class Endereco {
         this.municipio = municipio;
     }
 
-    public String getUf() {
+    public UnidadeFederativa getUf() {
         return uf;
     }
 
-    public void setUf(String uf) {
+    public void setUf(UnidadeFederativa uf) {
         this.uf = uf;
     }
 
