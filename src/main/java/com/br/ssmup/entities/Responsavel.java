@@ -2,7 +2,6 @@ package com.br.ssmup.entities;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import org.hibernate.validator.constraints.br.CPF;
 
 import java.util.ArrayList;
 import java.util.List;

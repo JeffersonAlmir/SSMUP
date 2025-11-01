@@ -1,12 +1,11 @@
 package com.br.ssmup.service;
 
+import com.br.ssmup.dto.EmpresaAtualizarDto;
 import com.br.ssmup.dto.EmpresaCadastroDto;
 import com.br.ssmup.dto.EmpresaResponseDto;
 import com.br.ssmup.dto.LicensaSanitariaResponseDto;
-import com.br.ssmup.dto.ResponsavelCadastroDto;
 import com.br.ssmup.entities.Empresa;
 import com.br.ssmup.entities.LicensaSanitaria;
-import com.br.ssmup.entities.Responsavel;
 import com.br.ssmup.mapper.EmpresaMapper;
 import com.br.ssmup.mapper.EnderecoMapper;
 import com.br.ssmup.mapper.LicensaSanitariaMapper;
@@ -39,6 +38,10 @@ public class MapperService {
     //Utilizado no metodo GET de empresa
     public EmpresaResponseDto  empresaToDto(Empresa empresa) {
         return empresaMapper.empresaToEmpresaResponseDto(empresa);
+    }
+
+    public EmpresaAtualizarDto empresaToEmpresaAtualizarDto(Empresa empresa) {
+        return empresaMapper.empresaToEmpresaAtualizarDto(empresa);
     }
 
     public LicensaSanitariaResponseDto licensaToDto(LicensaSanitaria licensa) {

@@ -1,14 +1,9 @@
 package com.br.ssmup.service;
 
-import com.br.ssmup.dto.EmpresaCadastroDto;
-import com.br.ssmup.dto.EmpresaResponseDto;
-import com.br.ssmup.dto.LicensaSanitariaCadastroDto;
-import com.br.ssmup.dto.LicensaSanitariaResponseDto;
+import com.br.ssmup.dto.*;
 import com.br.ssmup.entities.Empresa;
 import com.br.ssmup.entities.LicensaSanitaria;
-import com.br.ssmup.entities.Responsavel;
 import com.br.ssmup.exceptions.ResourceNotFoundException;
-import com.br.ssmup.mapper.EmpresaMapper;
 import com.br.ssmup.repository.EmpresaRepository;
 import com.br.ssmup.repository.LicensaSanitariaRepository;
 import com.br.ssmup.repository.ResponsavelRepository;
@@ -52,6 +47,40 @@ public class EmpresaService {
             throw new ResourceNotFoundException("Empresa não encontrada");
         }
         empresaRepository.deleteById(id);
+    }
+
+    public EmpresaAtualizarDto atualizarEmpresa(Long id, EmpresaAtualizarDto dto) {
+        Empresa empresa = empresaRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Empresa não encontrada"));
+
+        if(dto.razaoSocial() != null && !dto.razaoSocial().isBlank()) {
+            empresa.setRazaoSocial(dto.razaoSocial());
+        }
+
+        if(dto.nomeFantasia()  != null &&  !dto.nomeFantasia().isBlank()) {
+            empresa.setNomeFantasia(dto.nomeFantasia());
+        }
+
+        if (dto.cpfCnpj() != null && !dto.cpfCnpj().isBlank()) {
+            empresa.setCpfCnpj(dto.cpfCnpj());
+        }
+
+        if(dto.inscricaoEstadual() != null &&  !dto.inscricaoEstadual().isBlank()) {
+            empresa.setInscricaoEstadual(dto.inscricaoEstadual());
+        }
+
+        if(dto.atividadeFirma() != null &&   !dto.atividadeFirma().isBlank()) {
+            empresa.setAtividadeFirma(dto.atividadeFirma());
+        }
+
+        if(dto.subAtividade() != null &&   !dto.subAtividade().isBlank()) {
+            empresa.setSubAtividade(dto.subAtividade());
+        }
+
+        if(dto.dataInicioFuncionamento() != null) {
+            empresa.setDataInicioFuncionamento(dto.dataInicioFuncionamento());
+        }
+
+        return mapperService.empresaToEmpresaAtualizarDto(empresaRepository.save(empresa));
     }
 
     public LicensaSanitariaResponseDto saveLicensaSanitaria(Long id, LicensaSanitariaCadastroDto dto) {
