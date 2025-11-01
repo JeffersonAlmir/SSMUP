@@ -5,15 +5,15 @@ import jakarta.validation.constraints.NotBlank;
 import org.hibernate.validator.constraints.br.CPF;
 
 public record ResponsavelCadastroDto(
-        @NotBlank
+        @NotBlank(message = "Nome é obrigatorio")
         String nome,
-        @NotBlank
-        @Email
+        @NotBlank(message = "Email é obrigatorio")
+        @Email(message = "Email Inválido")
         String email,
-        @NotBlank
-        @CPF
+        @NotBlank(message = "Cpf é obrigatorio")
+        @CPF(message = "Cpf Inválido")
         String cpf,
-        @NotBlank
+        @NotBlank(message = "Rg é obrigatorio")
         String rg,
         String escolaridade,
         String formacao,

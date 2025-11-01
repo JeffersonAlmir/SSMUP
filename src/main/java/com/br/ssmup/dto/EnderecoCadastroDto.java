@@ -7,20 +7,20 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 public record EnderecoCadastroDto(
-        @NotBlank
+        @NotBlank(message = "Rua é obrigatoria")
         String rua,
-        @NotBlank
+        @NotBlank(message = "Numero é obrigatoria, se não houver coloque S/N")
         String numero,
-        @NotBlank
+        @NotBlank(message = "Bairro é obrigatorio")
         String bairro,
-        @NotBlank
+        @NotBlank(message = "Cep é obrigatorio")
         String cep,
-        @NotBlank
+        @NotBlank(message = "Municipio é obrigatorio")
         String municipio,
-        @NotNull
+        @NotNull(message = "Unidade federativa é obrigatoria")
         @Enumerated
         UnidadeFederativa uf,
-        @NotBlank
+        @NotBlank(message = "Telefone é obrigatorio")
         String telefone
 ) {
 }
