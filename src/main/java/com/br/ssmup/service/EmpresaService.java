@@ -4,6 +4,8 @@ import com.br.ssmup.dto.*;
 import com.br.ssmup.entities.Empresa;
 import com.br.ssmup.entities.LicensaSanitaria;
 import com.br.ssmup.exceptions.ResourceNotFoundException;
+import com.br.ssmup.mapper.EmpresaMapper;
+import com.br.ssmup.mapper.LicensaSanitariaMapper;
 import com.br.ssmup.repository.EmpresaRepository;
 import com.br.ssmup.repository.LicensaSanitariaRepository;
 import com.br.ssmup.repository.ResponsavelRepository;
@@ -16,30 +18,33 @@ public class EmpresaService {
     private final EmpresaRepository empresaRepository;
     private final ResponsavelRepository responsavelRepository;
     private final LicensaSanitariaRepository licensaSanitariaRepository;
-    private final MapperService mapperService;
+    private final EmpresaMapper empresaMapper;
+    private final LicensaSanitariaMapper licensaMapper;
 
-    public EmpresaService(EmpresaRepository empresaRepository, ResponsavelRepository responsavelRepository, LicensaSanitariaRepository licensaSanitariaRepository, MapperService mapperService) {
+    public EmpresaService(EmpresaRepository empresaRepository, ResponsavelRepository responsavelRepository, LicensaSanitariaRepository licensaSanitariaRepository, EmpresaMapper empresaMapper, LicensaSanitariaMapper licensaMapper) {
         this.empresaRepository = empresaRepository;
         this.responsavelRepository = responsavelRepository;
         this.licensaSanitariaRepository = licensaSanitariaRepository;
-        this.mapperService = mapperService;
+        this.empresaMapper = empresaMapper;
+        this.licensaMapper = licensaMapper;
     }
 
     public EmpresaResponseDto saveEmpresa(EmpresaCadastroDto dto) {
-        Empresa empresa = mapperService.dtoToEmpresa(dto);
+        Empresa empresa = empresaMapper.toEntity(dto);
+        empresa.adicionarEndereco(empresa.getEndereco());
         responsavelRepository.save(empresa.getResponsavel());
-        return mapperService.empresaToDto(empresaRepository.save(empresa));
+        return empresaMapper.toResponse(empresaRepository.save(empresa));
     }
 
     public List<EmpresaResponseDto>  listarEmpresas() {
         return empresaRepository.findAll().stream()
-                .map(mapperService::empresaToDto)
+                .map(empresaMapper::toResponse)
                 .toList();
     }
 
     public EmpresaResponseDto getEmpresaById(Long id) {
         Empresa empresa = empresaRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Empresa não encontrada"));
-        return mapperService.empresaToDto(empresa);
+        return empresaMapper.toResponse(empresa);
     }
 
     public void  deleteByIdEmpresa(Long id) {
@@ -80,7 +85,7 @@ public class EmpresaService {
             empresa.setDataInicioFuncionamento(dto.dataInicioFuncionamento());
         }
 
-        return mapperService.empresaToEmpresaAtualizarDto(empresaRepository.save(empresa));
+        return empresaMapper.toUpdate( empresaRepository.save(empresa));
     }
 
     public LicensaSanitariaResponseDto saveLicensaSanitaria(Long id, LicensaSanitariaCadastroDto dto) {
@@ -89,13 +94,13 @@ public class EmpresaService {
         newLicensa.setNumControle(dto.numControle());
         newLicensa.setEmpresa(empresa);
         licensaSanitariaRepository.save(newLicensa);
-        return mapperService.licensaToDto(newLicensa);
+        return licensaMapper.toResponse(newLicensa);
     }
 
     public List<LicensaSanitariaResponseDto> listarLicensasSanitarias(Long id) {
         Empresa empresa = empresaRepository.findById(id).orElseThrow(()-> new  ResourceNotFoundException("Empresa não encontrada"));
         return empresa.getLicensasSanitarias().stream()
-                .map(l -> mapperService.licensaToDto(l))
+                .map(licensaMapper::toResponse)
                 .toList();
     }
 

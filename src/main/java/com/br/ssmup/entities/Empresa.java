@@ -193,8 +193,4 @@ public class Empresa {
             endereco.setEmpresa(this);
         }
     }
-
-    public void adicionarResponsavel(Responsavel responsavel) {
-        this.responsavel = responsavel;
-    }
 }
