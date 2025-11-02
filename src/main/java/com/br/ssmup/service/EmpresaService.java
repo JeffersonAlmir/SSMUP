@@ -31,7 +31,6 @@ public class EmpresaService {
 
     public EmpresaResponseDto saveEmpresa(EmpresaCadastroDto dto) {
         Empresa empresa = empresaMapper.toEntity(dto);
-        empresa.adicionarEndereco(empresa.getEndereco());
         responsavelRepository.save(empresa.getResponsavel());
         return empresaMapper.toResponse(empresaRepository.save(empresa));
     }
