@@ -89,11 +89,9 @@ public class EmpresaService {
 
     public LicensaSanitariaResponseDto saveLicensaSanitaria(Long id, LicensaSanitariaCadastroDto dto) {
         Empresa empresa = empresaRepository.findById(id).orElseThrow(()-> new  ResourceNotFoundException("Empresa não encontrada"));
-        LicensaSanitaria newLicensa = new LicensaSanitaria();
-        newLicensa.setNumControle(dto.numControle());
-        newLicensa.setEmpresa(empresa);
-        licensaSanitariaRepository.save(newLicensa);
-        return licensaMapper.toResponse(newLicensa);
+        LicensaSanitaria licensaSanitaria = licensaMapper.toEntity(dto);
+        licensaSanitaria.setEmpresa(empresa);
+        return licensaMapper.toResponse(licensaSanitariaRepository.save(licensaSanitaria));
     }
 
     public List<LicensaSanitariaResponseDto> listarLicensasSanitarias(Long id) {
