@@ -3,6 +3,7 @@ package com.br.ssmup.service;
 import com.br.ssmup.dto.*;
 import com.br.ssmup.entities.Empresa;
 import com.br.ssmup.entities.LicensaSanitaria;
+import com.br.ssmup.entities.Responsavel;
 import com.br.ssmup.exceptions.ResourceNotFoundException;
 import com.br.ssmup.mapper.EmpresaMapper;
 import com.br.ssmup.mapper.LicensaSanitariaMapper;
@@ -31,7 +32,12 @@ public class EmpresaService {
 
     public EmpresaResponseDto saveEmpresa(EmpresaCadastroDto dto) {
         Empresa empresa = empresaMapper.toEntity(dto);
-        responsavelRepository.save(empresa.getResponsavel());
+        Responsavel responsavel = responsavelRepository.findByCpf(empresa.getResponsavel().getCpf());
+        if(responsavel == null){
+            responsavelRepository.save(empresa.getResponsavel());
+            return empresaMapper.toResponse(empresaRepository.save(empresa));
+        }
+        empresa.setResponsavel(responsavel);
         return empresaMapper.toResponse(empresaRepository.save(empresa));
     }
 

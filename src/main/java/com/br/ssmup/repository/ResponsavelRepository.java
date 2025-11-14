@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ResponsavelRepository extends JpaRepository<Responsavel, Long> {
+    Responsavel findByCpf(String nome);
 }
