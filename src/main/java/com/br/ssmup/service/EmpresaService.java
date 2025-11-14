@@ -47,6 +47,20 @@ public class EmpresaService {
                 .toList();
     }
 
+    public List<EmpresaResponseDto>  listarEmpresasAtivas() {
+        return empresaRepository.findAll().stream()
+                .filter(Empresa::isAtivo)
+                .map(empresaMapper::toResponse)
+                .toList();
+    }
+
+    public List<EmpresaResponseDto>  listarEmpresasInativas() {
+        return empresaRepository.findAll().stream()
+                .filter((empresa) -> !empresa.isAtivo())
+                .map(empresaMapper::toResponse)
+                .toList();
+    }
+
     public EmpresaResponseDto getEmpresaById(Long id) {
         Empresa empresa = empresaRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Empresa não encontrada"));
         return empresaMapper.toResponse(empresa);
@@ -57,6 +71,12 @@ public class EmpresaService {
             throw new ResourceNotFoundException("Empresa não encontrada");
         }
         empresaRepository.deleteById(id);
+    }
+
+    public void inativarEmpresa(Long id) {
+        Empresa empresa = empresaRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Empresa não encontrada"));
+        empresa.setAtivo(false);
+        empresaRepository.save(empresa);
     }
 
     public EmpresaAtualizarDto atualizarEmpresa(Long id, EmpresaAtualizarDto dto) {

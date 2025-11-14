@@ -26,6 +26,18 @@ public class EmpresaController {
         return ResponseEntity.ok().body(empresaService.listarEmpresas());
     }
 
+    //Listar todas as empresas ativas
+    @GetMapping("ativas")
+    public ResponseEntity<List<EmpresaResponseDto>> getAllEmpresasAtivas() {
+        return ResponseEntity.ok().body(empresaService.listarEmpresasAtivas());
+    }
+
+    //Listar todas as empresas inativas
+    @GetMapping("inativas")
+    public ResponseEntity<List<EmpresaResponseDto>> getAllEmpresasInativas() {
+        return ResponseEntity.ok().body(empresaService.listarEmpresasInativas());
+    }
+
     //Buscar empresa por ID
     @GetMapping({"{id}"})
     public ResponseEntity<EmpresaResponseDto> getEmpresas(@PathVariable Long id) {
@@ -39,16 +51,23 @@ public class EmpresaController {
     }
 
     //Atualizar Empresa por ID
-    @PutMapping({"{id}"})
+    @PutMapping("{id}")
     public ResponseEntity<EmpresaAtualizarDto> updateEmpresas(@PathVariable Long id, @RequestBody @Valid EmpresaAtualizarDto payload){
         return ResponseEntity.ok(empresaService.atualizarEmpresa(id, payload));
     }
 
-    //Deletar empresa por id, esse enpoint pode ser alterado para algo como "inativar empresa" ao invés de apagar e evitar perder dados.
+    //Deletar empresa por id
     @DeleteMapping("{id}")
     public ResponseEntity<Void> deleteEmpresa(@PathVariable Long id){
         empresaService.deleteByIdEmpresa(id);
         return ResponseEntity.noContent().build();
+    }
+
+    //Inativar empresa por ID
+    @DeleteMapping("{id}/inativar")
+    public ResponseEntity<Void> inativarEmpresa(@PathVariable Long id){
+        empresaService.inativarEmpresa(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
     //Buscar licensas sanitarias de uma empresa pelo ID
