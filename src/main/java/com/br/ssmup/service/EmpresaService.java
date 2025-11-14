@@ -2,6 +2,7 @@ package com.br.ssmup.service;
 
 import com.br.ssmup.dto.*;
 import com.br.ssmup.entities.Empresa;
+import com.br.ssmup.entities.Endereco;
 import com.br.ssmup.entities.LicensaSanitaria;
 import com.br.ssmup.entities.Responsavel;
 import com.br.ssmup.enums.UnidadeFederativa;
@@ -9,6 +10,7 @@ import com.br.ssmup.exceptions.ResourceNotFoundException;
 import com.br.ssmup.mapper.EmpresaMapper;
 import com.br.ssmup.mapper.EnderecoMapper;
 import com.br.ssmup.mapper.LicensaSanitariaMapper;
+import com.br.ssmup.mapper.ResponsavelMapper;
 import com.br.ssmup.repository.EmpresaRepository;
 import com.br.ssmup.repository.LicensaSanitariaRepository;
 import com.br.ssmup.repository.ResponsavelRepository;
@@ -23,14 +25,16 @@ public class EmpresaService {
     private final LicensaSanitariaRepository licensaSanitariaRepository;
     private final EmpresaMapper empresaMapper;
     private final EnderecoMapper  enderecoMapper;
+    private final ResponsavelMapper responsavelMapper;
     private final LicensaSanitariaMapper licensaMapper;
 
-    public EmpresaService(EmpresaRepository empresaRepository, ResponsavelRepository responsavelRepository, LicensaSanitariaRepository licensaSanitariaRepository, EmpresaMapper empresaMapper, EnderecoMapper enderecoMapper,LicensaSanitariaMapper licensaMapper) {
+    public EmpresaService(EmpresaRepository empresaRepository, ResponsavelRepository responsavelRepository, LicensaSanitariaRepository licensaSanitariaRepository, EmpresaMapper empresaMapper, EnderecoMapper enderecoMapper, ResponsavelMapper responsavelMapper, LicensaSanitariaMapper licensaMapper) {
         this.empresaRepository = empresaRepository;
         this.responsavelRepository = responsavelRepository;
         this.licensaSanitariaRepository = licensaSanitariaRepository;
         this.empresaMapper = empresaMapper;
         this.enderecoMapper = enderecoMapper;
+        this.responsavelMapper = responsavelMapper;
         this.licensaMapper = licensaMapper;
     }
 
@@ -134,39 +138,79 @@ public class EmpresaService {
 
     public EnderecoResponseDto atualizarEndereco(Long id, EnderecoAtualizarDto dto) {
         Empresa empresa = empresaRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Empresa nao encontrada"));
+        Endereco endereco = empresa.getEndereco();
 
         if(dto.rua() != null && !dto.rua().isBlank()) {
-            empresa.getEndereco().setRua(dto.rua());
+            endereco.setRua(dto.rua());
         }
 
         if(dto.numero() != null && !dto.numero().isBlank()) {
-            empresa.getEndereco().setNumero(dto.numero());
+            endereco.setNumero(dto.numero());
         }
 
         if(dto.bairro() != null && !dto.bairro().isBlank()) {
-            empresa.getEndereco().setBairro(dto.bairro());
+            endereco.setBairro(dto.bairro());
         }
 
         if(dto.cep() != null && !dto.cep().isBlank()) {
-            empresa.getEndereco().setCep(dto.cep());
+            endereco.setCep(dto.cep());
         }
 
         if(dto.municipio() != null && !dto.municipio().isBlank()) {
-            empresa.getEndereco().setMunicipio(dto.municipio());
+            endereco.setMunicipio(dto.municipio());
         }
 
         if(dto.uf() != null){
-            empresa.getEndereco().setUf(dto.uf());
+            endereco.setUf(dto.uf());
         }
 
         if(dto.telefone() != null && !dto.telefone().isBlank()) {
-            empresa.getEndereco().setTelefone(dto.telefone());
+            endereco.setTelefone(dto.telefone());
         }
 
         empresaRepository.save(empresa);
         return enderecoMapper.toResponse(empresa.getEndereco());
     }
 
+    public ResponsavelResponseDto atualizarResponsavel(Long id, ResponsavelAtualizarDto dto) {
+        Empresa empresa = empresaRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Empresa nao encontrada"));
+        Responsavel responsavel = empresa.getResponsavel();
+
+        if(dto.nome() != null && !dto.nome().isBlank()) {
+            responsavel.setNome(dto.nome());
+        }
+
+        if(dto.email() != null && !dto.email().isBlank()) {
+            responsavel.setEmail(dto.email());
+        }
+
+        if(dto.cpf() != null && !dto.cpf().isBlank()) {
+            responsavel.setCpf(dto.cpf());
+        }
+
+        if(dto.rg() != null && !dto.rg().isBlank()) {
+            responsavel.setRg(dto.rg());
+        }
+
+        if(dto.escolaridade() != null && !dto.escolaridade().isBlank()) {
+            responsavel.setEscolaridade(dto.escolaridade());
+        }
+
+        if(dto.formacao() != null && !dto.formacao().isBlank()) {
+            responsavel.setFormacao(dto.formacao());
+        }
+
+        if(dto.especializacao() != null && !dto.especializacao().isBlank()) {
+            responsavel.setEspecializacao(dto.especializacao());
+        }
+
+        if(dto.registroConselho() != null && !dto.registroConselho().isBlank()) {
+            responsavel.setRegistroConselho(dto.registroConselho());
+        }
+
+        empresaRepository.save(empresa);
+        return responsavelMapper.toResponse(responsavel);
+    }
 
 
 }
