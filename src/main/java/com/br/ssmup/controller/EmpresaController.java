@@ -56,6 +56,12 @@ public class EmpresaController {
         return ResponseEntity.ok(empresaService.atualizarEmpresa(id, payload));
     }
 
+    //Atulazar o Endereco de uma empresa pelo Id
+    @PutMapping("{id}/enderecos")
+    public ResponseEntity<EnderecoResponseDto> updateEndereco(@PathVariable Long id, @RequestBody @Valid EnderecoAtualizarDto payload){
+        return ResponseEntity.ok(empresaService.atualizarEndereco(id, payload));
+    }
+
     //Deletar empresa por id
     @DeleteMapping("{id}")
     public ResponseEntity<Void> deleteEmpresa(@PathVariable Long id){
