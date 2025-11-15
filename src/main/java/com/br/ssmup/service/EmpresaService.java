@@ -5,7 +5,6 @@ import com.br.ssmup.entities.Empresa;
 import com.br.ssmup.entities.Endereco;
 import com.br.ssmup.entities.LicensaSanitaria;
 import com.br.ssmup.entities.Responsavel;
-import com.br.ssmup.enums.UnidadeFederativa;
 import com.br.ssmup.exceptions.ResourceNotFoundException;
 import com.br.ssmup.mapper.EmpresaMapper;
 import com.br.ssmup.mapper.EnderecoMapper;
@@ -14,6 +13,7 @@ import com.br.ssmup.mapper.ResponsavelMapper;
 import com.br.ssmup.repository.EmpresaRepository;
 import com.br.ssmup.repository.LicensaSanitariaRepository;
 import com.br.ssmup.repository.ResponsavelRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -39,7 +39,7 @@ public class EmpresaService {
         this.licensaMapper = licensaMapper;
     }
 
-
+    @Transactional
     public EmpresaResponseDto saveEmpresa(EmpresaCadastroDto dto) {
         Empresa empresa = empresaMapper.toEntity(dto);
         Responsavel responsavel = responsavelRepository.findByCpf(empresa.getResponsavel().getCpf()).orElse(null);
@@ -51,6 +51,7 @@ public class EmpresaService {
         return empresaMapper.toResponse(empresaRepository.save(empresa));
     }
 
+    @Transactional
     public LicensaSanitariaResponseDto saveLicensaSanitaria(Long id, LicensaSanitariaCadastroDto dto) {
         Empresa empresa = empresaRepository.findById(id).orElseThrow(()-> new  ResourceNotFoundException("Empresa não encontrada"));
         LicensaSanitaria licensaSanitaria = licensaMapper.toEntity(dto);
@@ -90,6 +91,7 @@ public class EmpresaService {
         return empresaMapper.toResponse(empresa);
     }
 
+    @Transactional
     public void  deleteByIdEmpresa(Long id) {
         if(!empresaRepository.existsById(id)) {
             throw new ResourceNotFoundException("Empresa não encontrada");
@@ -97,12 +99,14 @@ public class EmpresaService {
         empresaRepository.deleteById(id);
     }
 
+    @Transactional
     public void inativarEmpresa(Long id) {
         Empresa empresa = empresaRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Empresa não encontrada"));
         empresa.setAtivo(false);
         empresaRepository.save(empresa);
     }
 
+    @Transactional
     public EmpresaAtualizarDto atualizarEmpresa(Long id, EmpresaAtualizarDto dto) {
         Empresa empresa = empresaRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Empresa não encontrada"));
 
@@ -137,6 +141,7 @@ public class EmpresaService {
         return empresaMapper.toUpdate( empresaRepository.save(empresa));
     }
 
+    @Transactional
     public EnderecoResponseDto atualizarEndereco(Long id, EnderecoAtualizarDto dto) {
         Empresa empresa = empresaRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Empresa nao encontrada"));
         Endereco endereco = empresa.getEndereco();
@@ -173,6 +178,7 @@ public class EmpresaService {
         return enderecoMapper.toResponse(empresa.getEndereco());
     }
 
+    @Transactional
     public ResponsavelResponseDto atualizarResponsavel(Long id, ResponsavelAtualizarDto dto) {
         Empresa empresa = empresaRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Empresa nao encontrada"));
         Responsavel responsavel = empresa.getResponsavel();

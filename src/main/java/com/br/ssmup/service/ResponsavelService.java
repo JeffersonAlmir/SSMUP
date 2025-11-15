@@ -8,6 +8,7 @@ import com.br.ssmup.exceptions.ResourceNotFoundException;
 import com.br.ssmup.mapper.EmpresaMapper;
 import com.br.ssmup.mapper.ResponsavelMapper;
 import com.br.ssmup.repository.ResponsavelRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -38,6 +39,7 @@ public class ResponsavelService {
                 .toList();
     }
 
+    @Transactional
     public ResponsavelResponseDto salvar(ResponsavelCadastroDto dto){
         Responsavel responsavel = responsavelMapper.toEntity(dto);
         responsavelRepository.save(responsavel);
