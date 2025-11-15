@@ -1,0 +1,1402 @@
+[
+  {
+    "razaoSocial": "Clínica Saúde 01 LTDA",
+    "nomeFantasia": "Saúde Mais 01",
+    "cpfCnpj": "10.000.000/0000-01",
+    "inscricaoEstadual": "000000000001",
+    "atividadeFirma": "Consultório odontológico",
+    "subAtividade": "Procedimentos clínicos",
+    "dataInicioFuncionamento": "05/10/2019",
+    "responsavelCadastroDto": {
+      "nome": "Dr(a). Responsável 01",
+      "email": "responsavel01@clinica01.com",
+      "cpf": "900.000.000-01",
+      "rg": "20.000.001-1",
+      "escolaridade": "Ensino Superior Completo",
+      "formacao": "Enfermagem",
+      "especializacao": "Saúde da Família",
+      "registroConselho": "CONSELHO 500001-PB"
+    },
+    "enderecoCadastroDto": {
+      "rua": "Rua Principal",
+      "numero": "238",
+      "bairro": "Centro",
+      "municipio": "Cidade Exemplo",
+      "uf": "PB",
+      "cep": "11000-001",
+      "telefone": "(83) 97791-2566"
+    }
+  },
+  {
+    "razaoSocial": "Clínica Saúde 02 LTDA",
+    "nomeFantasia": "Saúde Mais 02",
+    "cpfCnpj": "10.000.000/0000-02",
+    "inscricaoEstadual": "000000000002",
+    "atividadeFirma": "Clínica de nutrição",
+    "subAtividade": "Acompanhamento nutricional",
+    "dataInicioFuncionamento": "11/04/2022",
+    "responsavelCadastroDto": {
+      "nome": "Dr(a). Responsável 02",
+      "email": "responsavel02@clinica02.com",
+      "cpf": "900.000.000-02",
+      "rg": "20.000.002-2",
+      "escolaridade": "Ensino Superior Completo",
+      "formacao": "Enfermagem",
+      "especializacao": "Saúde da Família",
+      "registroConselho": "CONSELHO 500002-MS"
+    },
+    "enderecoCadastroDto": {
+      "rua": "Rua Principal",
+      "numero": "774",
+      "bairro": "Centro",
+      "municipio": "Cidade Exemplo",
+      "uf": "MS",
+      "cep": "11000-002",
+      "telefone": "(83) 99226-9365"
+    }
+  },
+  {
+    "razaoSocial": "Clínica Saúde 03 LTDA",
+    "nomeFantasia": "Saúde Mais 03",
+    "cpfCnpj": "10.000.000/0000-03",
+    "inscricaoEstadual": "000000000003",
+    "atividadeFirma": "Clínica de fisioterapia",
+    "subAtividade": "Reabilitação física e motora",
+    "dataInicioFuncionamento": "09/05/2020",
+    "responsavelCadastroDto": {
+      "nome": "Dr(a). Responsável 03",
+      "email": "responsavel03@clinica03.com",
+      "cpf": "900.000.000-03",
+      "rg": "20.000.003-3",
+      "escolaridade": "Ensino Superior Completo",
+      "formacao": "Enfermagem",
+      "especializacao": "Saúde da Família",
+      "registroConselho": "CONSELHO 500003-PE"
+    },
+    "enderecoCadastroDto": {
+      "rua": "Rua Principal",
+      "numero": "426",
+      "bairro": "Centro",
+      "municipio": "Cidade Exemplo",
+      "uf": "PE",
+      "cep": "11000-003",
+      "telefone": "(83) 95509-5467"
+    }
+  },
+  {
+    "razaoSocial": "Clínica Saúde 04 LTDA",
+    "nomeFantasia": "Saúde Mais 04",
+    "cpfCnpj": "10.000.000/0000-04",
+    "inscricaoEstadual": "000000000004",
+    "atividadeFirma": "Consultório odontológico",
+    "subAtividade": "Procedimentos clínicos",
+    "dataInicioFuncionamento": "26/09/2023",
+    "responsavelCadastroDto": {
+      "nome": "Dr(a). Responsável 04",
+      "email": "responsavel04@clinica04.com",
+      "cpf": "900.000.000-04",
+      "rg": "20.000.004-4",
+      "escolaridade": "Ensino Superior Completo",
+      "formacao": "Enfermagem",
+      "especializacao": "Saúde da Família",
+      "registroConselho": "CONSELHO 500004-PA"
+    },
+    "enderecoCadastroDto": {
+      "rua": "Rua Principal",
+      "numero": "161",
+      "bairro": "Centro",
+      "municipio": "Cidade Exemplo",
+      "uf": "PA",
+      "cep": "11000-004",
+      "telefone": "(83) 93116-7716"
+    }
+  },
+  {
+    "razaoSocial": "Clínica Saúde 05 LTDA",
+    "nomeFantasia": "Saúde Mais 05",
+    "cpfCnpj": "10.000.000/0000-05",
+    "inscricaoEstadual": "000000000005",
+    "atividadeFirma": "Clínica de fisioterapia",
+    "subAtividade": "Reabilitação física e motora",
+    "dataInicioFuncionamento": "20/05/2020",
+    "responsavelCadastroDto": {
+      "nome": "Dr(a). Responsável 05",
+      "email": "responsavel05@clinica05.com",
+      "cpf": "900.000.000-05",
+      "rg": "20.000.005-5",
+      "escolaridade": "Ensino Superior Completo",
+      "formacao": "Enfermagem",
+      "especializacao": "Saúde da Família",
+      "registroConselho": "CONSELHO 500005-MA"
+    },
+    "enderecoCadastroDto": {
+      "rua": "Rua Principal",
+      "numero": "194",
+      "bairro": "Centro",
+      "municipio": "Cidade Exemplo",
+      "uf": "MA",
+      "cep": "11000-005",
+      "telefone": "(83) 91959-7447"
+    }
+  },
+  {
+    "razaoSocial": "Clínica Saúde 06 LTDA",
+    "nomeFantasia": "Saúde Mais 06",
+    "cpfCnpj": "10.000.000/0000-06",
+    "inscricaoEstadual": "000000000006",
+    "atividadeFirma": "Consultório odontológico",
+    "subAtividade": "Procedimentos clínicos",
+    "dataInicioFuncionamento": "29/07/2020",
+    "responsavelCadastroDto": {
+      "nome": "Dr(a). Responsável 06",
+      "email": "responsavel06@clinica06.com",
+      "cpf": "900.000.000-06",
+      "rg": "20.000.006-6",
+      "escolaridade": "Ensino Superior Completo",
+      "formacao": "Enfermagem",
+      "especializacao": "Saúde da Família",
+      "registroConselho": "CONSELHO 500006-SC"
+    },
+    "enderecoCadastroDto": {
+      "rua": "Rua Principal",
+      "numero": "144",
+      "bairro": "Centro",
+      "municipio": "Cidade Exemplo",
+      "uf": "SC",
+      "cep": "11000-006",
+      "telefone": "(83) 99561-9697"
+    }
+  },
+  {
+    "razaoSocial": "Clínica Saúde 07 LTDA",
+    "nomeFantasia": "Saúde Mais 07",
+    "cpfCnpj": "10.000.000/0000-07",
+    "inscricaoEstadual": "000000000007",
+    "atividadeFirma": "Clínica de nutrição",
+    "subAtividade": "Acompanhamento nutricional",
+    "dataInicioFuncionamento": "10/02/2020",
+    "responsavelCadastroDto": {
+      "nome": "Dr(a). Responsável 07",
+      "email": "responsavel07@clinica07.com",
+      "cpf": "900.000.000-07",
+      "rg": "20.000.007-7",
+      "escolaridade": "Ensino Superior Completo",
+      "formacao": "Enfermagem",
+      "especializacao": "Saúde da Família",
+      "registroConselho": "CONSELHO 500007-PR"
+    },
+    "enderecoCadastroDto": {
+      "rua": "Rua Principal",
+      "numero": "130",
+      "bairro": "Centro",
+      "municipio": "Cidade Exemplo",
+      "uf": "PR",
+      "cep": "11000-007",
+      "telefone": "(83) 99724-9081"
+    }
+  },
+  {
+    "razaoSocial": "Clínica Saúde 08 LTDA",
+    "nomeFantasia": "Saúde Mais 08",
+    "cpfCnpj": "10.000.000/0000-08",
+    "inscricaoEstadual": "000000000008",
+    "atividadeFirma": "Laboratório de análises clínicas",
+    "subAtividade": "Coleta e exames laboratoriais",
+    "dataInicioFuncionamento": "20/07/2022",
+    "responsavelCadastroDto": {
+      "nome": "Dr(a). Responsável 08",
+      "email": "responsavel08@clinica08.com",
+      "cpf": "900.000.000-08",
+      "rg": "20.000.008-8",
+      "escolaridade": "Ensino Superior Completo",
+      "formacao": "Enfermagem",
+      "especializacao": "Saúde da Família",
+      "registroConselho": "CONSELHO 500008-MG"
+    },
+    "enderecoCadastroDto": {
+      "rua": "Rua Principal",
+      "numero": "980",
+      "bairro": "Centro",
+      "municipio": "Cidade Exemplo",
+      "uf": "MG",
+      "cep": "11000-008",
+      "telefone": "(83) 98603-9798"
+    }
+  },
+  {
+    "razaoSocial": "Clínica Saúde 09 LTDA",
+    "nomeFantasia": "Saúde Mais 09",
+    "cpfCnpj": "10.000.000/0000-09",
+    "inscricaoEstadual": "000000000009",
+    "atividadeFirma": "Clínica de pediatria",
+    "subAtividade": "Atendimento infantil",
+    "dataInicioFuncionamento": "22/04/2024",
+    "responsavelCadastroDto": {
+      "nome": "Dr(a). Responsável 09",
+      "email": "responsavel09@clinica09.com",
+      "cpf": "900.000.000-09",
+      "rg": "20.000.009-9",
+      "escolaridade": "Ensino Superior Completo",
+      "formacao": "Enfermagem",
+      "especializacao": "Saúde da Família",
+      "registroConselho": "CONSELHO 500009-MT"
+    },
+    "enderecoCadastroDto": {
+      "rua": "Rua Principal",
+      "numero": "93",
+      "bairro": "Centro",
+      "municipio": "Cidade Exemplo",
+      "uf": "MT",
+      "cep": "11000-009",
+      "telefone": "(83) 92235-3961"
+    }
+  },
+  {
+    "razaoSocial": "Clínica Saúde 10 LTDA",
+    "nomeFantasia": "Saúde Mais 10",
+    "cpfCnpj": "10.000.000/0000-10",
+    "inscricaoEstadual": "000000000010",
+    "atividadeFirma": "Clínica de fisioterapia",
+    "subAtividade": "Reabilitação física e motora",
+    "dataInicioFuncionamento": "20/05/2019",
+    "responsavelCadastroDto": {
+      "nome": "Dr(a). Responsável 10",
+      "email": "responsavel10@clinica10.com",
+      "cpf": "900.000.000-10",
+      "rg": "20.000.0010-10",
+      "escolaridade": "Ensino Superior Completo",
+      "formacao": "Enfermagem",
+      "especializacao": "Saúde da Família",
+      "registroConselho": "CONSELHO 500010-MA"
+    },
+    "enderecoCadastroDto": {
+      "rua": "Rua Principal",
+      "numero": "719",
+      "bairro": "Centro",
+      "municipio": "Cidade Exemplo",
+      "uf": "MA",
+      "cep": "11000-010",
+      "telefone": "(83) 92507-9398"
+    }
+  },
+  {
+    "razaoSocial": "Clínica Saúde 11 LTDA",
+    "nomeFantasia": "Saúde Mais 11",
+    "cpfCnpj": "10.000.000/0000-11",
+    "inscricaoEstadual": "000000000011",
+    "atividadeFirma": "Clínica de nutrição",
+    "subAtividade": "Acompanhamento nutricional",
+    "dataInicioFuncionamento": "30/12/2024",
+    "responsavelCadastroDto": {
+      "nome": "Dr(a). Responsável 11",
+      "email": "responsavel11@clinica11.com",
+      "cpf": "900.000.000-11",
+      "rg": "20.000.0011-11",
+      "escolaridade": "Ensino Superior Completo",
+      "formacao": "Enfermagem",
+      "especializacao": "Saúde da Família",
+      "registroConselho": "CONSELHO 500011-BA"
+    },
+    "enderecoCadastroDto": {
+      "rua": "Rua Principal",
+      "numero": "118",
+      "bairro": "Centro",
+      "municipio": "Cidade Exemplo",
+      "uf": "BA",
+      "cep": "11000-011",
+      "telefone": "(83) 93997-2892"
+    }
+  },
+  {
+    "razaoSocial": "Clínica Saúde 12 LTDA",
+    "nomeFantasia": "Saúde Mais 12",
+    "cpfCnpj": "10.000.000/0000-12",
+    "inscricaoEstadual": "000000000012",
+    "atividadeFirma": "Laboratório de análises clínicas",
+    "subAtividade": "Coleta e exames laboratoriais",
+    "dataInicioFuncionamento": "29/06/2018",
+    "responsavelCadastroDto": {
+      "nome": "Dr(a). Responsável 12",
+      "email": "responsavel12@clinica12.com",
+      "cpf": "900.000.000-12",
+      "rg": "20.000.0012-12",
+      "escolaridade": "Ensino Superior Completo",
+      "formacao": "Enfermagem",
+      "especializacao": "Saúde da Família",
+      "registroConselho": "CONSELHO 500012-RR"
+    },
+    "enderecoCadastroDto": {
+      "rua": "Rua Principal",
+      "numero": "119",
+      "bairro": "Centro",
+      "municipio": "Cidade Exemplo",
+      "uf": "RR",
+      "cep": "11000-012",
+      "telefone": "(83) 99086-3574"
+    }
+  },
+  {
+    "razaoSocial": "Clínica Saúde 13 LTDA",
+    "nomeFantasia": "Saúde Mais 13",
+    "cpfCnpj": "10.000.000/0000-13",
+    "inscricaoEstadual": "000000000013",
+    "atividadeFirma": "Clínica de psicologia",
+    "subAtividade": "Atendimento psicoterapêutico",
+    "dataInicioFuncionamento": "08/02/2021",
+    "responsavelCadastroDto": {
+      "nome": "Dr(a). Responsável 13",
+      "email": "responsavel13@clinica13.com",
+      "cpf": "900.000.000-13",
+      "rg": "20.000.0013-13",
+      "escolaridade": "Ensino Superior Completo",
+      "formacao": "Enfermagem",
+      "especializacao": "Saúde da Família",
+      "registroConselho": "CONSELHO 500013-BA"
+    },
+    "enderecoCadastroDto": {
+      "rua": "Rua Principal",
+      "numero": "601",
+      "bairro": "Centro",
+      "municipio": "Cidade Exemplo",
+      "uf": "BA",
+      "cep": "11000-013",
+      "telefone": "(83) 99900-9842"
+    }
+  },
+  {
+    "razaoSocial": "Clínica Saúde 14 LTDA",
+    "nomeFantasia": "Saúde Mais 14",
+    "cpfCnpj": "10.000.000/0000-14",
+    "inscricaoEstadual": "000000000014",
+    "atividadeFirma": "Clínica de psicologia",
+    "subAtividade": "Atendimento psicoterapêutico",
+    "dataInicioFuncionamento": "29/03/2024",
+    "responsavelCadastroDto": {
+      "nome": "Dr(a). Responsável 14",
+      "email": "responsavel14@clinica14.com",
+      "cpf": "900.000.000-14",
+      "rg": "20.000.0014-14",
+      "escolaridade": "Ensino Superior Completo",
+      "formacao": "Enfermagem",
+      "especializacao": "Saúde da Família",
+      "registroConselho": "CONSELHO 500014-PA"
+    },
+    "enderecoCadastroDto": {
+      "rua": "Rua Principal",
+      "numero": "657",
+      "bairro": "Centro",
+      "municipio": "Cidade Exemplo",
+      "uf": "PA",
+      "cep": "11000-014",
+      "telefone": "(83) 92336-5203"
+    }
+  },
+  {
+    "razaoSocial": "Clínica Saúde 15 LTDA",
+    "nomeFantasia": "Saúde Mais 15",
+    "cpfCnpj": "10.000.000/0000-15",
+    "inscricaoEstadual": "000000000015",
+    "atividadeFirma": "Laboratório de análises clínicas",
+    "subAtividade": "Coleta e exames laboratoriais",
+    "dataInicioFuncionamento": "31/07/2022",
+    "responsavelCadastroDto": {
+      "nome": "Dr(a). Responsável 15",
+      "email": "responsavel15@clinica15.com",
+      "cpf": "900.000.000-15",
+      "rg": "20.000.0015-15",
+      "escolaridade": "Ensino Superior Completo",
+      "formacao": "Enfermagem",
+      "especializacao": "Saúde da Família",
+      "registroConselho": "CONSELHO 500015-PE"
+    },
+    "enderecoCadastroDto": {
+      "rua": "Rua Principal",
+      "numero": "902",
+      "bairro": "Centro",
+      "municipio": "Cidade Exemplo",
+      "uf": "PE",
+      "cep": "11000-015",
+      "telefone": "(83) 96805-2291"
+    }
+  },
+  {
+    "razaoSocial": "Clínica Saúde 16 LTDA",
+    "nomeFantasia": "Saúde Mais 16",
+    "cpfCnpj": "10.000.000/0000-16",
+    "inscricaoEstadual": "000000000016",
+    "atividadeFirma": "Clínica de psicologia",
+    "subAtividade": "Atendimento psicoterapêutico",
+    "dataInicioFuncionamento": "12/07/2019",
+    "responsavelCadastroDto": {
+      "nome": "Dr(a). Responsável 16",
+      "email": "responsavel16@clinica16.com",
+      "cpf": "900.000.000-16",
+      "rg": "20.000.0016-16",
+      "escolaridade": "Ensino Superior Completo",
+      "formacao": "Enfermagem",
+      "especializacao": "Saúde da Família",
+      "registroConselho": "CONSELHO 500016-DF"
+    },
+    "enderecoCadastroDto": {
+      "rua": "Rua Principal",
+      "numero": "599",
+      "bairro": "Centro",
+      "municipio": "Cidade Exemplo",
+      "uf": "DF",
+      "cep": "11000-016",
+      "telefone": "(83) 93461-3815"
+    }
+  },
+  {
+    "razaoSocial": "Clínica Saúde 17 LTDA",
+    "nomeFantasia": "Saúde Mais 17",
+    "cpfCnpj": "10.000.000/0000-17",
+    "inscricaoEstadual": "000000000017",
+    "atividadeFirma": "Consultório odontológico",
+    "subAtividade": "Procedimentos clínicos",
+    "dataInicioFuncionamento": "07/01/2024",
+    "responsavelCadastroDto": {
+      "nome": "Dr(a). Responsável 17",
+      "email": "responsavel17@clinica17.com",
+      "cpf": "900.000.000-17",
+      "rg": "20.000.0017-17",
+      "escolaridade": "Ensino Superior Completo",
+      "formacao": "Enfermagem",
+      "especializacao": "Saúde da Família",
+      "registroConselho": "CONSELHO 500017-MG"
+    },
+    "enderecoCadastroDto": {
+      "rua": "Rua Principal",
+      "numero": "901",
+      "bairro": "Centro",
+      "municipio": "Cidade Exemplo",
+      "uf": "MG",
+      "cep": "11000-017",
+      "telefone": "(83) 98117-9338"
+    }
+  },
+  {
+    "razaoSocial": "Clínica Saúde 18 LTDA",
+    "nomeFantasia": "Saúde Mais 18",
+    "cpfCnpj": "10.000.000/0000-18",
+    "inscricaoEstadual": "000000000018",
+    "atividadeFirma": "Clínica de fisioterapia",
+    "subAtividade": "Reabilitação física e motora",
+    "dataInicioFuncionamento": "18/01/2019",
+    "responsavelCadastroDto": {
+      "nome": "Dr(a). Responsável 18",
+      "email": "responsavel18@clinica18.com",
+      "cpf": "900.000.000-18",
+      "rg": "20.000.0018-18",
+      "escolaridade": "Ensino Superior Completo",
+      "formacao": "Enfermagem",
+      "especializacao": "Saúde da Família",
+      "registroConselho": "CONSELHO 500018-MG"
+    },
+    "enderecoCadastroDto": {
+      "rua": "Rua Principal",
+      "numero": "834",
+      "bairro": "Centro",
+      "municipio": "Cidade Exemplo",
+      "uf": "MG",
+      "cep": "11000-018",
+      "telefone": "(83) 99923-1922"
+    }
+  },
+  {
+    "razaoSocial": "Clínica Saúde 19 LTDA",
+    "nomeFantasia": "Saúde Mais 19",
+    "cpfCnpj": "10.000.000/0000-19",
+    "inscricaoEstadual": "000000000019",
+    "atividadeFirma": "Clínica de fisioterapia",
+    "subAtividade": "Reabilitação física e motora",
+    "dataInicioFuncionamento": "26/09/2018",
+    "responsavelCadastroDto": {
+      "nome": "Dr(a). Responsável 19",
+      "email": "responsavel19@clinica19.com",
+      "cpf": "900.000.000-19",
+      "rg": "20.000.0019-19",
+      "escolaridade": "Ensino Superior Completo",
+      "formacao": "Enfermagem",
+      "especializacao": "Saúde da Família",
+      "registroConselho": "CONSELHO 500019-MA"
+    },
+    "enderecoCadastroDto": {
+      "rua": "Rua Principal",
+      "numero": "425",
+      "bairro": "Centro",
+      "municipio": "Cidade Exemplo",
+      "uf": "MA",
+      "cep": "11000-019",
+      "telefone": "(83) 91549-5075"
+    }
+  },
+  {
+    "razaoSocial": "Clínica Saúde 20 LTDA",
+    "nomeFantasia": "Saúde Mais 20",
+    "cpfCnpj": "10.000.000/0000-20",
+    "inscricaoEstadual": "000000000020",
+    "atividadeFirma": "Clínica de fisioterapia",
+    "subAtividade": "Reabilitação física e motora",
+    "dataInicioFuncionamento": "03/01/2024",
+    "responsavelCadastroDto": {
+      "nome": "Dr(a). Responsável 20",
+      "email": "responsavel20@clinica20.com",
+      "cpf": "900.000.000-20",
+      "rg": "20.000.0020-20",
+      "escolaridade": "Ensino Superior Completo",
+      "formacao": "Enfermagem",
+      "especializacao": "Saúde da Família",
+      "registroConselho": "CONSELHO 500020-AC"
+    },
+    "enderecoCadastroDto": {
+      "rua": "Rua Principal",
+      "numero": "162",
+      "bairro": "Centro",
+      "municipio": "Cidade Exemplo",
+      "uf": "AC",
+      "cep": "11000-020",
+      "telefone": "(83) 97185-6490"
+    }
+  },
+  {
+    "razaoSocial": "Clínica Saúde 21 LTDA",
+    "nomeFantasia": "Saúde Mais 21",
+    "cpfCnpj": "10.000.000/0000-21",
+    "inscricaoEstadual": "000000000021",
+    "atividadeFirma": "Clínica de nutrição",
+    "subAtividade": "Acompanhamento nutricional",
+    "dataInicioFuncionamento": "20/10/2024",
+    "responsavelCadastroDto": {
+      "nome": "Dr(a). Responsável 21",
+      "email": "responsavel21@clinica21.com",
+      "cpf": "900.000.000-21",
+      "rg": "20.000.0021-21",
+      "escolaridade": "Ensino Superior Completo",
+      "formacao": "Enfermagem",
+      "especializacao": "Saúde da Família",
+      "registroConselho": "CONSELHO 500021-SE"
+    },
+    "enderecoCadastroDto": {
+      "rua": "Rua Principal",
+      "numero": "129",
+      "bairro": "Centro",
+      "municipio": "Cidade Exemplo",
+      "uf": "SE",
+      "cep": "11000-021",
+      "telefone": "(83) 97981-9032"
+    }
+  },
+  {
+    "razaoSocial": "Clínica Saúde 22 LTDA",
+    "nomeFantasia": "Saúde Mais 22",
+    "cpfCnpj": "10.000.000/0000-22",
+    "inscricaoEstadual": "000000000022",
+    "atividadeFirma": "Consultório odontológico",
+    "subAtividade": "Procedimentos clínicos",
+    "dataInicioFuncionamento": "15/03/2024",
+    "responsavelCadastroDto": {
+      "nome": "Dr(a). Responsável 22",
+      "email": "responsavel22@clinica22.com",
+      "cpf": "900.000.000-22",
+      "rg": "20.000.0022-22",
+      "escolaridade": "Ensino Superior Completo",
+      "formacao": "Enfermagem",
+      "especializacao": "Saúde da Família",
+      "registroConselho": "CONSELHO 500022-TO"
+    },
+    "enderecoCadastroDto": {
+      "rua": "Rua Principal",
+      "numero": "127",
+      "bairro": "Centro",
+      "municipio": "Cidade Exemplo",
+      "uf": "TO",
+      "cep": "11000-022",
+      "telefone": "(83) 95101-2609"
+    }
+  },
+  {
+    "razaoSocial": "Clínica Saúde 23 LTDA",
+    "nomeFantasia": "Saúde Mais 23",
+    "cpfCnpj": "10.000.000/0000-23",
+    "inscricaoEstadual": "000000000023",
+    "atividadeFirma": "Clínica de fisioterapia",
+    "subAtividade": "Reabilitação física e motora",
+    "dataInicioFuncionamento": "21/11/2021",
+    "responsavelCadastroDto": {
+      "nome": "Dr(a). Responsável 23",
+      "email": "responsavel23@clinica23.com",
+      "cpf": "900.000.000-23",
+      "rg": "20.000.0023-23",
+      "escolaridade": "Ensino Superior Completo",
+      "formacao": "Enfermagem",
+      "especializacao": "Saúde da Família",
+      "registroConselho": "CONSELHO 500023-PA"
+    },
+    "enderecoCadastroDto": {
+      "rua": "Rua Principal",
+      "numero": "38",
+      "bairro": "Centro",
+      "municipio": "Cidade Exemplo",
+      "uf": "PA",
+      "cep": "11000-023",
+      "telefone": "(83) 92846-6131"
+    }
+  },
+  {
+    "razaoSocial": "Clínica Saúde 24 LTDA",
+    "nomeFantasia": "Saúde Mais 24",
+    "cpfCnpj": "10.000.000/0000-24",
+    "inscricaoEstadual": "000000000024",
+    "atividadeFirma": "Consultório odontológico",
+    "subAtividade": "Procedimentos clínicos",
+    "dataInicioFuncionamento": "21/10/2023",
+    "responsavelCadastroDto": {
+      "nome": "Dr(a). Responsável 24",
+      "email": "responsavel24@clinica24.com",
+      "cpf": "900.000.000-24",
+      "rg": "20.000.0024-24",
+      "escolaridade": "Ensino Superior Completo",
+      "formacao": "Enfermagem",
+      "especializacao": "Saúde da Família",
+      "registroConselho": "CONSELHO 500024-MG"
+    },
+    "enderecoCadastroDto": {
+      "rua": "Rua Principal",
+      "numero": "610",
+      "bairro": "Centro",
+      "municipio": "Cidade Exemplo",
+      "uf": "MG",
+      "cep": "11000-024",
+      "telefone": "(83) 99150-1135"
+    }
+  },
+  {
+    "razaoSocial": "Clínica Saúde 25 LTDA",
+    "nomeFantasia": "Saúde Mais 25",
+    "cpfCnpj": "10.000.000/0000-25",
+    "inscricaoEstadual": "000000000025",
+    "atividadeFirma": "Clínica de nutrição",
+    "subAtividade": "Acompanhamento nutricional",
+    "dataInicioFuncionamento": "14/07/2022",
+    "responsavelCadastroDto": {
+      "nome": "Dr(a). Responsável 25",
+      "email": "responsavel25@clinica25.com",
+      "cpf": "900.000.000-25",
+      "rg": "20.000.0025-25",
+      "escolaridade": "Ensino Superior Completo",
+      "formacao": "Enfermagem",
+      "especializacao": "Saúde da Família",
+      "registroConselho": "CONSELHO 500025-RR"
+    },
+    "enderecoCadastroDto": {
+      "rua": "Rua Principal",
+      "numero": "246",
+      "bairro": "Centro",
+      "municipio": "Cidade Exemplo",
+      "uf": "RR",
+      "cep": "11000-025",
+      "telefone": "(83) 96529-1445"
+    }
+  },
+  {
+    "razaoSocial": "Clínica Saúde 26 LTDA",
+    "nomeFantasia": "Saúde Mais 26",
+    "cpfCnpj": "10.000.000/0000-26",
+    "inscricaoEstadual": "000000000026",
+    "atividadeFirma": "Consultório odontológico",
+    "subAtividade": "Procedimentos clínicos",
+    "dataInicioFuncionamento": "15/07/2024",
+    "responsavelCadastroDto": {
+      "nome": "Dr(a). Responsável 26",
+      "email": "responsavel26@clinica26.com",
+      "cpf": "900.000.000-26",
+      "rg": "20.000.0026-26",
+      "escolaridade": "Ensino Superior Completo",
+      "formacao": "Enfermagem",
+      "especializacao": "Saúde da Família",
+      "registroConselho": "CONSELHO 500026-RR"
+    },
+    "enderecoCadastroDto": {
+      "rua": "Rua Principal",
+      "numero": "34",
+      "bairro": "Centro",
+      "municipio": "Cidade Exemplo",
+      "uf": "RR",
+      "cep": "11000-026",
+      "telefone": "(83) 92799-9646"
+    }
+  },
+  {
+    "razaoSocial": "Clínica Saúde 27 LTDA",
+    "nomeFantasia": "Saúde Mais 27",
+    "cpfCnpj": "10.000.000/0000-27",
+    "inscricaoEstadual": "000000000027",
+    "atividadeFirma": "Clínica de pediatria",
+    "subAtividade": "Atendimento infantil",
+    "dataInicioFuncionamento": "14/11/2021",
+    "responsavelCadastroDto": {
+      "nome": "Dr(a). Responsável 27",
+      "email": "responsavel27@clinica27.com",
+      "cpf": "900.000.000-27",
+      "rg": "20.000.0027-27",
+      "escolaridade": "Ensino Superior Completo",
+      "formacao": "Enfermagem",
+      "especializacao": "Saúde da Família",
+      "registroConselho": "CONSELHO 500027-DF"
+    },
+    "enderecoCadastroDto": {
+      "rua": "Rua Principal",
+      "numero": "388",
+      "bairro": "Centro",
+      "municipio": "Cidade Exemplo",
+      "uf": "DF",
+      "cep": "11000-027",
+      "telefone": "(83) 93726-3520"
+    }
+  },
+  {
+    "razaoSocial": "Clínica Saúde 28 LTDA",
+    "nomeFantasia": "Saúde Mais 28",
+    "cpfCnpj": "10.000.000/0000-28",
+    "inscricaoEstadual": "000000000028",
+    "atividadeFirma": "Clínica de nutrição",
+    "subAtividade": "Acompanhamento nutricional",
+    "dataInicioFuncionamento": "26/03/2018",
+    "responsavelCadastroDto": {
+      "nome": "Dr(a). Responsável 28",
+      "email": "responsavel28@clinica28.com",
+      "cpf": "900.000.000-28",
+      "rg": "20.000.0028-28",
+      "escolaridade": "Ensino Superior Completo",
+      "formacao": "Enfermagem",
+      "especializacao": "Saúde da Família",
+      "registroConselho": "CONSELHO 500028-RJ"
+    },
+    "enderecoCadastroDto": {
+      "rua": "Rua Principal",
+      "numero": "926",
+      "bairro": "Centro",
+      "municipio": "Cidade Exemplo",
+      "uf": "RJ",
+      "cep": "11000-028",
+      "telefone": "(83) 99282-9298"
+    }
+  },
+  {
+    "razaoSocial": "Clínica Saúde 29 LTDA",
+    "nomeFantasia": "Saúde Mais 29",
+    "cpfCnpj": "10.000.000/0000-29",
+    "inscricaoEstadual": "000000000029",
+    "atividadeFirma": "Clínica de nutrição",
+    "subAtividade": "Acompanhamento nutricional",
+    "dataInicioFuncionamento": "14/09/2019",
+    "responsavelCadastroDto": {
+      "nome": "Dr(a). Responsável 29",
+      "email": "responsavel29@clinica29.com",
+      "cpf": "900.000.000-29",
+      "rg": "20.000.0029-29",
+      "escolaridade": "Ensino Superior Completo",
+      "formacao": "Enfermagem",
+      "especializacao": "Saúde da Família",
+      "registroConselho": "CONSELHO 500029-PA"
+    },
+    "enderecoCadastroDto": {
+      "rua": "Rua Principal",
+      "numero": "11",
+      "bairro": "Centro",
+      "municipio": "Cidade Exemplo",
+      "uf": "PA",
+      "cep": "11000-029",
+      "telefone": "(83) 94003-1439"
+    }
+  },
+  {
+    "razaoSocial": "Clínica Saúde 30 LTDA",
+    "nomeFantasia": "Saúde Mais 30",
+    "cpfCnpj": "10.000.000/0000-30",
+    "inscricaoEstadual": "000000000030",
+    "atividadeFirma": "Clínica de nutrição",
+    "subAtividade": "Acompanhamento nutricional",
+    "dataInicioFuncionamento": "29/05/2022",
+    "responsavelCadastroDto": {
+      "nome": "Dr(a). Responsável 30",
+      "email": "responsavel30@clinica30.com",
+      "cpf": "900.000.000-30",
+      "rg": "20.000.0030-30",
+      "escolaridade": "Ensino Superior Completo",
+      "formacao": "Enfermagem",
+      "especializacao": "Saúde da Família",
+      "registroConselho": "CONSELHO 500030-PB"
+    },
+    "enderecoCadastroDto": {
+      "rua": "Rua Principal",
+      "numero": "884",
+      "bairro": "Centro",
+      "municipio": "Cidade Exemplo",
+      "uf": "PB",
+      "cep": "11000-030",
+      "telefone": "(83) 95198-2257"
+    }
+  },
+  {
+    "razaoSocial": "Clínica Saúde 31 LTDA",
+    "nomeFantasia": "Saúde Mais 31",
+    "cpfCnpj": "10.000.000/0000-31",
+    "inscricaoEstadual": "000000000031",
+    "atividadeFirma": "Laboratório de análises clínicas",
+    "subAtividade": "Coleta e exames laboratoriais",
+    "dataInicioFuncionamento": "28/01/2024",
+    "responsavelCadastroDto": {
+      "nome": "Dr(a). Responsável 31",
+      "email": "responsavel31@clinica31.com",
+      "cpf": "900.000.000-31",
+      "rg": "20.000.0031-31",
+      "escolaridade": "Ensino Superior Completo",
+      "formacao": "Enfermagem",
+      "especializacao": "Saúde da Família",
+      "registroConselho": "CONSELHO 500031-RN"
+    },
+    "enderecoCadastroDto": {
+      "rua": "Rua Principal",
+      "numero": "198",
+      "bairro": "Centro",
+      "municipio": "Cidade Exemplo",
+      "uf": "RN",
+      "cep": "11000-031",
+      "telefone": "(83) 96154-4569"
+    }
+  },
+  {
+    "razaoSocial": "Clínica Saúde 32 LTDA",
+    "nomeFantasia": "Saúde Mais 32",
+    "cpfCnpj": "10.000.000/0000-32",
+    "inscricaoEstadual": "000000000032",
+    "atividadeFirma": "Laboratório de análises clínicas",
+    "subAtividade": "Coleta e exames laboratoriais",
+    "dataInicioFuncionamento": "01/03/2019",
+    "responsavelCadastroDto": {
+      "nome": "Dr(a). Responsável 32",
+      "email": "responsavel32@clinica32.com",
+      "cpf": "900.000.000-32",
+      "rg": "20.000.0032-32",
+      "escolaridade": "Ensino Superior Completo",
+      "formacao": "Enfermagem",
+      "especializacao": "Saúde da Família",
+      "registroConselho": "CONSELHO 500032-PE"
+    },
+    "enderecoCadastroDto": {
+      "rua": "Rua Principal",
+      "numero": "389",
+      "bairro": "Centro",
+      "municipio": "Cidade Exemplo",
+      "uf": "PE",
+      "cep": "11000-032",
+      "telefone": "(83) 99730-8461"
+    }
+  },
+  {
+    "razaoSocial": "Clínica Saúde 33 LTDA",
+    "nomeFantasia": "Saúde Mais 33",
+    "cpfCnpj": "10.000.000/0000-33",
+    "inscricaoEstadual": "000000000033",
+    "atividadeFirma": "Laboratório de análises clínicas",
+    "subAtividade": "Coleta e exames laboratoriais",
+    "dataInicioFuncionamento": "23/02/2021",
+    "responsavelCadastroDto": {
+      "nome": "Dr(a). Responsável 33",
+      "email": "responsavel33@clinica33.com",
+      "cpf": "900.000.000-33",
+      "rg": "20.000.0033-33",
+      "escolaridade": "Ensino Superior Completo",
+      "formacao": "Enfermagem",
+      "especializacao": "Saúde da Família",
+      "registroConselho": "CONSELHO 500033-MS"
+    },
+    "enderecoCadastroDto": {
+      "rua": "Rua Principal",
+      "numero": "402",
+      "bairro": "Centro",
+      "municipio": "Cidade Exemplo",
+      "uf": "MS",
+      "cep": "11000-033",
+      "telefone": "(83) 94987-8757"
+    }
+  },
+  {
+    "razaoSocial": "Clínica Saúde 34 LTDA",
+    "nomeFantasia": "Saúde Mais 34",
+    "cpfCnpj": "10.000.000/0000-34",
+    "inscricaoEstadual": "000000000034",
+    "atividadeFirma": "Consultório odontológico",
+    "subAtividade": "Procedimentos clínicos",
+    "dataInicioFuncionamento": "09/06/2018",
+    "responsavelCadastroDto": {
+      "nome": "Dr(a). Responsável 34",
+      "email": "responsavel34@clinica34.com",
+      "cpf": "900.000.000-34",
+      "rg": "20.000.0034-34",
+      "escolaridade": "Ensino Superior Completo",
+      "formacao": "Enfermagem",
+      "especializacao": "Saúde da Família",
+      "registroConselho": "CONSELHO 500034-TO"
+    },
+    "enderecoCadastroDto": {
+      "rua": "Rua Principal",
+      "numero": "212",
+      "bairro": "Centro",
+      "municipio": "Cidade Exemplo",
+      "uf": "TO",
+      "cep": "11000-034",
+      "telefone": "(83) 98795-7412"
+    }
+  },
+  {
+    "razaoSocial": "Clínica Saúde 35 LTDA",
+    "nomeFantasia": "Saúde Mais 35",
+    "cpfCnpj": "10.000.000/0000-35",
+    "inscricaoEstadual": "000000000035",
+    "atividadeFirma": "Clínica de pediatria",
+    "subAtividade": "Atendimento infantil",
+    "dataInicioFuncionamento": "13/08/2021",
+    "responsavelCadastroDto": {
+      "nome": "Dr(a). Responsável 35",
+      "email": "responsavel35@clinica35.com",
+      "cpf": "900.000.000-35",
+      "rg": "20.000.0035-35",
+      "escolaridade": "Ensino Superior Completo",
+      "formacao": "Enfermagem",
+      "especializacao": "Saúde da Família",
+      "registroConselho": "CONSELHO 500035-RJ"
+    },
+    "enderecoCadastroDto": {
+      "rua": "Rua Principal",
+      "numero": "140",
+      "bairro": "Centro",
+      "municipio": "Cidade Exemplo",
+      "uf": "RJ",
+      "cep": "11000-035",
+      "telefone": "(83) 95763-2210"
+    }
+  },
+  {
+    "razaoSocial": "Clínica Saúde 36 LTDA",
+    "nomeFantasia": "Saúde Mais 36",
+    "cpfCnpj": "10.000.000/0000-36",
+    "inscricaoEstadual": "000000000036",
+    "atividadeFirma": "Laboratório de análises clínicas",
+    "subAtividade": "Coleta e exames laboratoriais",
+    "dataInicioFuncionamento": "20/03/2019",
+    "responsavelCadastroDto": {
+      "nome": "Dr(a). Responsável 36",
+      "email": "responsavel36@clinica36.com",
+      "cpf": "900.000.000-36",
+      "rg": "20.000.0036-36",
+      "escolaridade": "Ensino Superior Completo",
+      "formacao": "Enfermagem",
+      "especializacao": "Saúde da Família",
+      "registroConselho": "CONSELHO 500036-GO"
+    },
+    "enderecoCadastroDto": {
+      "rua": "Rua Principal",
+      "numero": "318",
+      "bairro": "Centro",
+      "municipio": "Cidade Exemplo",
+      "uf": "GO",
+      "cep": "11000-036",
+      "telefone": "(83) 95516-7033"
+    }
+  },
+  {
+    "razaoSocial": "Clínica Saúde 37 LTDA",
+    "nomeFantasia": "Saúde Mais 37",
+    "cpfCnpj": "10.000.000/0000-37",
+    "inscricaoEstadual": "000000000037",
+    "atividadeFirma": "Laboratório de análises clínicas",
+    "subAtividade": "Coleta e exames laboratoriais",
+    "dataInicioFuncionamento": "20/02/2018",
+    "responsavelCadastroDto": {
+      "nome": "Dr(a). Responsável 37",
+      "email": "responsavel37@clinica37.com",
+      "cpf": "900.000.000-37",
+      "rg": "20.000.0037-37",
+      "escolaridade": "Ensino Superior Completo",
+      "formacao": "Enfermagem",
+      "especializacao": "Saúde da Família",
+      "registroConselho": "CONSELHO 500037-AL"
+    },
+    "enderecoCadastroDto": {
+      "rua": "Rua Principal",
+      "numero": "757",
+      "bairro": "Centro",
+      "municipio": "Cidade Exemplo",
+      "uf": "AL",
+      "cep": "11000-037",
+      "telefone": "(83) 94641-3005"
+    }
+  },
+  {
+    "razaoSocial": "Clínica Saúde 38 LTDA",
+    "nomeFantasia": "Saúde Mais 38",
+    "cpfCnpj": "10.000.000/0000-38",
+    "inscricaoEstadual": "000000000038",
+    "atividadeFirma": "Clínica de fisioterapia",
+    "subAtividade": "Reabilitação física e motora",
+    "dataInicioFuncionamento": "25/11/2020",
+    "responsavelCadastroDto": {
+      "nome": "Dr(a). Responsável 38",
+      "email": "responsavel38@clinica38.com",
+      "cpf": "900.000.000-38",
+      "rg": "20.000.0038-38",
+      "escolaridade": "Ensino Superior Completo",
+      "formacao": "Enfermagem",
+      "especializacao": "Saúde da Família",
+      "registroConselho": "CONSELHO 500038-PA"
+    },
+    "enderecoCadastroDto": {
+      "rua": "Rua Principal",
+      "numero": "684",
+      "bairro": "Centro",
+      "municipio": "Cidade Exemplo",
+      "uf": "PA",
+      "cep": "11000-038",
+      "telefone": "(83) 99785-3159"
+    }
+  },
+  {
+    "razaoSocial": "Clínica Saúde 39 LTDA",
+    "nomeFantasia": "Saúde Mais 39",
+    "cpfCnpj": "10.000.000/0000-39",
+    "inscricaoEstadual": "000000000039",
+    "atividadeFirma": "Clínica de fisioterapia",
+    "subAtividade": "Reabilitação física e motora",
+    "dataInicioFuncionamento": "10/11/2019",
+    "responsavelCadastroDto": {
+      "nome": "Dr(a). Responsável 39",
+      "email": "responsavel39@clinica39.com",
+      "cpf": "900.000.000-39",
+      "rg": "20.000.0039-39",
+      "escolaridade": "Ensino Superior Completo",
+      "formacao": "Enfermagem",
+      "especializacao": "Saúde da Família",
+      "registroConselho": "CONSELHO 500039-SP"
+    },
+    "enderecoCadastroDto": {
+      "rua": "Rua Principal",
+      "numero": "973",
+      "bairro": "Centro",
+      "municipio": "Cidade Exemplo",
+      "uf": "SP",
+      "cep": "11000-039",
+      "telefone": "(83) 98577-9504"
+    }
+  },
+  {
+    "razaoSocial": "Clínica Saúde 40 LTDA",
+    "nomeFantasia": "Saúde Mais 40",
+    "cpfCnpj": "10.000.000/0000-40",
+    "inscricaoEstadual": "000000000040",
+    "atividadeFirma": "Clínica de fisioterapia",
+    "subAtividade": "Reabilitação física e motora",
+    "dataInicioFuncionamento": "21/11/2018",
+    "responsavelCadastroDto": {
+      "nome": "Dr(a). Responsável 40",
+      "email": "responsavel40@clinica40.com",
+      "cpf": "900.000.000-40",
+      "rg": "20.000.0040-40",
+      "escolaridade": "Ensino Superior Completo",
+      "formacao": "Enfermagem",
+      "especializacao": "Saúde da Família",
+      "registroConselho": "CONSELHO 500040-PB"
+    },
+    "enderecoCadastroDto": {
+      "rua": "Rua Principal",
+      "numero": "874",
+      "bairro": "Centro",
+      "municipio": "Cidade Exemplo",
+      "uf": "PB",
+      "cep": "11000-040",
+      "telefone": "(83) 93534-9698"
+    }
+  },
+  {
+    "razaoSocial": "Clínica Saúde 41 LTDA",
+    "nomeFantasia": "Saúde Mais 41",
+    "cpfCnpj": "10.000.000/0000-41",
+    "inscricaoEstadual": "000000000041",
+    "atividadeFirma": "Clínica de psicologia",
+    "subAtividade": "Atendimento psicoterapêutico",
+    "dataInicioFuncionamento": "26/08/2021",
+    "responsavelCadastroDto": {
+      "nome": "Dr(a). Responsável 41",
+      "email": "responsavel41@clinica41.com",
+      "cpf": "900.000.000-41",
+      "rg": "20.000.0041-41",
+      "escolaridade": "Ensino Superior Completo",
+      "formacao": "Enfermagem",
+      "especializacao": "Saúde da Família",
+      "registroConselho": "CONSELHO 500041-SC"
+    },
+    "enderecoCadastroDto": {
+      "rua": "Rua Principal",
+      "numero": "185",
+      "bairro": "Centro",
+      "municipio": "Cidade Exemplo",
+      "uf": "SC",
+      "cep": "11000-041",
+      "telefone": "(83) 96928-2603"
+    }
+  },
+  {
+    "razaoSocial": "Clínica Saúde 42 LTDA",
+    "nomeFantasia": "Saúde Mais 42",
+    "cpfCnpj": "10.000.000/0000-42",
+    "inscricaoEstadual": "000000000042",
+    "atividadeFirma": "Clínica de fisioterapia",
+    "subAtividade": "Reabilitação física e motora",
+    "dataInicioFuncionamento": "19/08/2018",
+    "responsavelCadastroDto": {
+      "nome": "Dr(a). Responsável 42",
+      "email": "responsavel42@clinica42.com",
+      "cpf": "900.000.000-42",
+      "rg": "20.000.0042-42",
+      "escolaridade": "Ensino Superior Completo",
+      "formacao": "Enfermagem",
+      "especializacao": "Saúde da Família",
+      "registroConselho": "CONSELHO 500042-SC"
+    },
+    "enderecoCadastroDto": {
+      "rua": "Rua Principal",
+      "numero": "522",
+      "bairro": "Centro",
+      "municipio": "Cidade Exemplo",
+      "uf": "SC",
+      "cep": "11000-042",
+      "telefone": "(83) 92173-2455"
+    }
+  },
+  {
+    "razaoSocial": "Clínica Saúde 43 LTDA",
+    "nomeFantasia": "Saúde Mais 43",
+    "cpfCnpj": "10.000.000/0000-43",
+    "inscricaoEstadual": "000000000043",
+    "atividadeFirma": "Clínica de nutrição",
+    "subAtividade": "Acompanhamento nutricional",
+    "dataInicioFuncionamento": "16/09/2021",
+    "responsavelCadastroDto": {
+      "nome": "Dr(a). Responsável 43",
+      "email": "responsavel43@clinica43.com",
+      "cpf": "900.000.000-43",
+      "rg": "20.000.0043-43",
+      "escolaridade": "Ensino Superior Completo",
+      "formacao": "Enfermagem",
+      "especializacao": "Saúde da Família",
+      "registroConselho": "CONSELHO 500043-RN"
+    },
+    "enderecoCadastroDto": {
+      "rua": "Rua Principal",
+      "numero": "827",
+      "bairro": "Centro",
+      "municipio": "Cidade Exemplo",
+      "uf": "RN",
+      "cep": "11000-043",
+      "telefone": "(83) 97734-8463"
+    }
+  },
+  {
+    "razaoSocial": "Clínica Saúde 44 LTDA",
+    "nomeFantasia": "Saúde Mais 44",
+    "cpfCnpj": "10.000.000/0000-44",
+    "inscricaoEstadual": "000000000044",
+    "atividadeFirma": "Laboratório de análises clínicas",
+    "subAtividade": "Coleta e exames laboratoriais",
+    "dataInicioFuncionamento": "11/09/2020",
+    "responsavelCadastroDto": {
+      "nome": "Dr(a). Responsável 44",
+      "email": "responsavel44@clinica44.com",
+      "cpf": "900.000.000-44",
+      "rg": "20.000.0044-44",
+      "escolaridade": "Ensino Superior Completo",
+      "formacao": "Enfermagem",
+      "especializacao": "Saúde da Família",
+      "registroConselho": "CONSELHO 500044-PE"
+    },
+    "enderecoCadastroDto": {
+      "rua": "Rua Principal",
+      "numero": "963",
+      "bairro": "Centro",
+      "municipio": "Cidade Exemplo",
+      "uf": "PE",
+      "cep": "11000-044",
+      "telefone": "(83) 98999-4904"
+    }
+  },
+  {
+    "razaoSocial": "Clínica Saúde 45 LTDA",
+    "nomeFantasia": "Saúde Mais 45",
+    "cpfCnpj": "10.000.000/0000-45",
+    "inscricaoEstadual": "000000000045",
+    "atividadeFirma": "Laboratório de análises clínicas",
+    "subAtividade": "Coleta e exames laboratoriais",
+    "dataInicioFuncionamento": "10/12/2020",
+    "responsavelCadastroDto": {
+      "nome": "Dr(a). Responsável 45",
+      "email": "responsavel45@clinica45.com",
+      "cpf": "900.000.000-45",
+      "rg": "20.000.0045-45",
+      "escolaridade": "Ensino Superior Completo",
+      "formacao": "Enfermagem",
+      "especializacao": "Saúde da Família",
+      "registroConselho": "CONSELHO 500045-PB"
+    },
+    "enderecoCadastroDto": {
+      "rua": "Rua Principal",
+      "numero": "304",
+      "bairro": "Centro",
+      "municipio": "Cidade Exemplo",
+      "uf": "PB",
+      "cep": "11000-045",
+      "telefone": "(83) 94249-7593"
+    }
+  },
+  {
+    "razaoSocial": "Clínica Saúde 46 LTDA",
+    "nomeFantasia": "Saúde Mais 46",
+    "cpfCnpj": "10.000.000/0000-46",
+    "inscricaoEstadual": "000000000046",
+    "atividadeFirma": "Clínica de nutrição",
+    "subAtividade": "Acompanhamento nutricional",
+    "dataInicioFuncionamento": "27/05/2020",
+    "responsavelCadastroDto": {
+      "nome": "Dr(a). Responsável 46",
+      "email": "responsavel46@clinica46.com",
+      "cpf": "900.000.000-46",
+      "rg": "20.000.0046-46",
+      "escolaridade": "Ensino Superior Completo",
+      "formacao": "Enfermagem",
+      "especializacao": "Saúde da Família",
+      "registroConselho": "CONSELHO 500046-TO"
+    },
+    "enderecoCadastroDto": {
+      "rua": "Rua Principal",
+      "numero": "267",
+      "bairro": "Centro",
+      "municipio": "Cidade Exemplo",
+      "uf": "TO",
+      "cep": "11000-046",
+      "telefone": "(83) 98538-1417"
+    }
+  },
+  {
+    "razaoSocial": "Clínica Saúde 47 LTDA",
+    "nomeFantasia": "Saúde Mais 47",
+    "cpfCnpj": "10.000.000/0000-47",
+    "inscricaoEstadual": "000000000047",
+    "atividadeFirma": "Consultório odontológico",
+    "subAtividade": "Procedimentos clínicos",
+    "dataInicioFuncionamento": "20/05/2021",
+    "responsavelCadastroDto": {
+      "nome": "Dr(a). Responsável 47",
+      "email": "responsavel47@clinica47.com",
+      "cpf": "900.000.000-47",
+      "rg": "20.000.0047-47",
+      "escolaridade": "Ensino Superior Completo",
+      "formacao": "Enfermagem",
+      "especializacao": "Saúde da Família",
+      "registroConselho": "CONSELHO 500047-RS"
+    },
+    "enderecoCadastroDto": {
+      "rua": "Rua Principal",
+      "numero": "339",
+      "bairro": "Centro",
+      "municipio": "Cidade Exemplo",
+      "uf": "RS",
+      "cep": "11000-047",
+      "telefone": "(83) 95286-5337"
+    }
+  },
+  {
+    "razaoSocial": "Clínica Saúde 48 LTDA",
+    "nomeFantasia": "Saúde Mais 48",
+    "cpfCnpj": "10.000.000/0000-48",
+    "inscricaoEstadual": "000000000048",
+    "atividadeFirma": "Clínica de psicologia",
+    "subAtividade": "Atendimento psicoterapêutico",
+    "dataInicioFuncionamento": "07/12/2023",
+    "responsavelCadastroDto": {
+      "nome": "Dr(a). Responsável 48",
+      "email": "responsavel48@clinica48.com",
+      "cpf": "900.000.000-48",
+      "rg": "20.000.0048-48",
+      "escolaridade": "Ensino Superior Completo",
+      "formacao": "Enfermagem",
+      "especializacao": "Saúde da Família",
+      "registroConselho": "CONSELHO 500048-AC"
+    },
+    "enderecoCadastroDto": {
+      "rua": "Rua Principal",
+      "numero": "560",
+      "bairro": "Centro",
+      "municipio": "Cidade Exemplo",
+      "uf": "AC",
+      "cep": "11000-048",
+      "telefone": "(83) 92511-4259"
+    }
+  },
+  {
+    "razaoSocial": "Clínica Saúde 49 LTDA",
+    "nomeFantasia": "Saúde Mais 49",
+    "cpfCnpj": "10.000.000/0000-49",
+    "inscricaoEstadual": "000000000049",
+    "atividadeFirma": "Clínica de nutrição",
+    "subAtividade": "Acompanhamento nutricional",
+    "dataInicioFuncionamento": "03/03/2023",
+    "responsavelCadastroDto": {
+      "nome": "Dr(a). Responsável 49",
+      "email": "responsavel49@clinica49.com",
+      "cpf": "900.000.000-49",
+      "rg": "20.000.0049-49",
+      "escolaridade": "Ensino Superior Completo",
+      "formacao": "Enfermagem",
+      "especializacao": "Saúde da Família",
+      "registroConselho": "CONSELHO 500049-MG"
+    },
+    "enderecoCadastroDto": {
+      "rua": "Rua Principal",
+      "numero": "723",
+      "bairro": "Centro",
+      "municipio": "Cidade Exemplo",
+      "uf": "MG",
+      "cep": "11000-049",
+      "telefone": "(83) 96847-7019"
+    }
+  },
+  {
+    "razaoSocial": "Clínica Saúde 50 LTDA",
+    "nomeFantasia": "Saúde Mais 50",
+    "cpfCnpj": "10.000.000/0000-50",
+    "inscricaoEstadual": "000000000050",
+    "atividadeFirma": "Clínica de psicologia",
+    "subAtividade": "Atendimento psicoterapêutico",
+    "dataInicioFuncionamento": "22/03/2021",
+    "responsavelCadastroDto": {
+      "nome": "Dr(a). Responsável 50",
+      "email": "responsavel50@clinica50.com",
+      "cpf": "900.000.000-50",
+      "rg": "20.000.0050-50",
+      "escolaridade": "Ensino Superior Completo",
+      "formacao": "Enfermagem",
+      "especializacao": "Saúde da Família",
+      "registroConselho": "CONSELHO 500050-AC"
+    },
+    "enderecoCadastroDto": {
+      "rua": "Rua Principal",
+      "numero": "839",
+      "bairro": "Centro",
+      "municipio": "Cidade Exemplo",
+      "uf": "AC",
+      "cep": "11000-050",
+      "telefone": "(83) 91545-2899"
+    }
+  }
+]
