@@ -3,6 +3,10 @@ package com.br.ssmup.controller;
 import com.br.ssmup.dto.*;
 import com.br.ssmup.service.EmpresaService;
 import jakarta.validation.Valid;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,6 +28,12 @@ public class EmpresaController {
     @GetMapping
     public ResponseEntity<List<EmpresaResponseDto>> getAllEmpresas() {
         return ResponseEntity.ok().body(empresaService.listarEmpresas());
+    }
+
+    //Listar as empresas paginadas
+    @GetMapping("pagination")
+    public ResponseEntity<Page<EmpresaResponseDto>> getAllEmpresasPage(@PageableDefault(page = 0, size = 10, sort = "razaoSocial", direction = Sort.Direction.ASC) Pageable pageable) {
+        return ResponseEntity.ok().body(empresaService.listarEmpresasPageable(pageable));
     }
 
     //Listar todas as empresas ativas

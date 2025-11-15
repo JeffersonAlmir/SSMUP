@@ -14,6 +14,8 @@ import com.br.ssmup.repository.EmpresaRepository;
 import com.br.ssmup.repository.LicensaSanitariaRepository;
 import com.br.ssmup.repository.ResponsavelRepository;
 import jakarta.transaction.Transactional;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -63,6 +65,10 @@ public class EmpresaService {
         return empresaRepository.findAll().stream()
                 .map(empresaMapper::toResponse)
                 .toList();
+    }
+
+    public Page<EmpresaResponseDto> listarEmpresasPageable(Pageable pageable) {
+        return empresaRepository.findAll(pageable).map(empresaMapper::toResponse);
     }
 
     public List<EmpresaResponseDto>  listarEmpresasAtivas() {
