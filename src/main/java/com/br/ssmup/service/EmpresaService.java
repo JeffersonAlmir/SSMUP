@@ -20,6 +20,7 @@ import java.util.List;
 
 @Service
 public class EmpresaService {
+
     private final EmpresaRepository empresaRepository;
     private final ResponsavelRepository responsavelRepository;
     private final LicensaSanitariaRepository licensaSanitariaRepository;
@@ -41,7 +42,7 @@ public class EmpresaService {
 
     public EmpresaResponseDto saveEmpresa(EmpresaCadastroDto dto) {
         Empresa empresa = empresaMapper.toEntity(dto);
-        Responsavel responsavel = responsavelRepository.findByCpf(empresa.getResponsavel().getCpf());
+        Responsavel responsavel = responsavelRepository.findByCpf(empresa.getResponsavel().getCpf()).orElse(null);
         if(responsavel == null){
             responsavelRepository.save(empresa.getResponsavel());
             return empresaMapper.toResponse(empresaRepository.save(empresa));
