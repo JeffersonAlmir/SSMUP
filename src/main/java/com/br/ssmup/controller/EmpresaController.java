@@ -32,7 +32,7 @@ public class EmpresaController {
 
     //Listar as empresas paginadas
     @GetMapping("pagination")
-    public ResponseEntity<Page<EmpresaResponseDto>> getAllEmpresasPage(@PageableDefault(page = 0, size = 10, sort = "razaoSocial", direction = Sort.Direction.ASC) Pageable pageable) {
+    public ResponseEntity<PageDto<EmpresaResponseDto>> getAllEmpresasPage(@PageableDefault(page = 0, size = 10, sort = "razaoSocial", direction = Sort.Direction.ASC) Pageable pageable) {
         return ResponseEntity.ok().body(empresaService.listarEmpresasPageable(pageable));
     }
 
