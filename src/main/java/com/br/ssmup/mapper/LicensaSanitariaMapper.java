@@ -8,5 +8,5 @@ import org.mapstruct.Mapper;
 @Mapper(componentModel = "spring")
 public interface LicensaSanitariaMapper {
     LicensaSanitaria toEntity(LicensaSanitariaCadastroDto dto);
-    LicensaSanitariaResponseDto toResponse(LicensaSanitaria responsavel);
+    LicensaSanitariaResponseDto toResponse(LicensaSanitaria entity);
 }
