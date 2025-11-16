@@ -1,5 +1,6 @@
 /*
-    Descomente o bloco de codigo para popular a tabela de empresas com 50 registros.
+    Descomente o bloco de codigo para popular a tabela de empresas com o arquivo que esta em resource/data, escolha
+    um deles.
 */
 
 //package com.br.ssmup.utils;
@@ -29,10 +30,10 @@
 //    @Override
 //    public void run(String... args) {
 //
-//        try (InputStream inputStream = getClass().getResourceAsStream("/data/empresas.json")) {
+//        try (InputStream inputStream = getClass().getResourceAsStream("/data/empresas_100.json")) {
 //
 //            if (inputStream == null) {
-//                System.out.println("Arquivo empresas.json não encontrado em src/main/resources/data");
+//                System.out.println("Arquivo não encontrado em src/main/resources/data");
 //                return;
 //            }
 //
