@@ -24,8 +24,8 @@ public record EmpresaCadastroDto(
         @JsonFormat(pattern = "dd/MM/yyyy")
         LocalDate dataInicioFuncionamento,
         @Valid
-        EnderecoCadastroDto enderecoCadastroDto,
+        EnderecoCadastroDto endereco,
         @Valid
-        ResponsavelCadastroDto responsavelCadastroDto
+        ResponsavelCadastroDto responsavel
 ) {
 }

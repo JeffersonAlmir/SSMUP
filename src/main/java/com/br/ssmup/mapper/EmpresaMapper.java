@@ -9,8 +9,8 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses =  {EnderecoMapper.class, ResponsavelMapper.class})
 public interface EmpresaMapper {
 
-    @Mapping(source = "enderecoCadastroDto", target = "endereco")
-    @Mapping(source = "responsavelCadastroDto", target = "responsavel")
+    @Mapping(source = "endereco", target = "endereco")
+    @Mapping(source = "responsavel", target = "responsavel")
     Empresa toEntity(EmpresaCadastroDto dto);
 
     EmpresaResponseDto toResponse(Empresa empresa);
