@@ -2,6 +2,7 @@ package com.br.ssmup.service;
 
 import com.br.ssmup.dto.LicensaSanitariaResponseDto;
 import com.br.ssmup.dto.PageDto;
+import com.br.ssmup.entities.LicensaSanitaria;
 import com.br.ssmup.mapper.LicensaSanitariaMapper;
 import com.br.ssmup.repository.LicensaSanitariaRepository;
 import org.springframework.data.domain.Page;
@@ -30,6 +31,13 @@ public class LicensaSanitariaService {
     public PageDto<LicensaSanitariaResponseDto> buscarLicensasSanitariaPagable(Pageable pageable){
         Page<LicensaSanitariaResponseDto> page =  licensaSanitariaRepository.findAll(pageable).map(licensaSanitariaMapper::toResponse);
         return PageDto.of(page);
+    }
+
+    public LicensaSanitariaResponseDto buscarLicencaSanitariaByNumControle(String numControle){
+
+        LicensaSanitaria entity = licensaSanitariaRepository.findByNumControle(numControle)
+                .orElseThrow(()-> new RuntimeException("Licença sanitária não encontrada"));
+        return licensaSanitariaMapper.toResponse(entity);
     }
 
 }
