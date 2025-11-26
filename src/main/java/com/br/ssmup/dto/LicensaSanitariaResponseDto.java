@@ -8,6 +8,7 @@ public record LicensaSanitariaResponseDto(
         String numControle,
         LocalDateTime dataEmissao,
         LocalDate dataValidade,
-        boolean status
+        boolean status,
+        EmpresaResponseDto empresa
 ) {
 }

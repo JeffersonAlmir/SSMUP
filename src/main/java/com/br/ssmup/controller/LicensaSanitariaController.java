@@ -1,14 +1,12 @@
 package com.br.ssmup.controller;
 
 import com.br.ssmup.dto.LicensaSanitariaResponseDto;
-import com.br.ssmup.dto.PageDto;
 import com.br.ssmup.service.LicensaSanitariaService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

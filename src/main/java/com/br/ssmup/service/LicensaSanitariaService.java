@@ -1,7 +1,6 @@
 package com.br.ssmup.service;
 
 import com.br.ssmup.dto.LicensaSanitariaResponseDto;
-import com.br.ssmup.dto.PageDto;
 import com.br.ssmup.entities.LicensaSanitaria;
 import com.br.ssmup.mapper.LicensaSanitariaMapper;
 import com.br.ssmup.repository.LicensaSanitariaRepository;
