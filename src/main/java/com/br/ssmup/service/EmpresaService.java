@@ -67,9 +67,8 @@ public class EmpresaService {
                 .toList();
     }
 
-    public PageDto<EmpresaResponseDto> listarEmpresasPageable(Pageable pageable) {
-        Page<EmpresaResponseDto> page = empresaRepository.findAll(pageable).map(empresaMapper::toResponse);
-        return PageDto.of(page);
+    public Page<EmpresaResponseDto> listarEmpresasPageable(Pageable pageable) {
+        return empresaRepository.findAll(pageable).map(empresaMapper::toResponse);
     }
 
     public List<EmpresaResponseDto>  listarEmpresasAtivas() {

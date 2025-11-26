@@ -28,9 +28,8 @@ public class LicensaSanitariaService {
                 .toList();
     }
 
-    public PageDto<LicensaSanitariaResponseDto> buscarLicensasSanitariaPagable(Pageable pageable){
-        Page<LicensaSanitariaResponseDto> page =  licensaSanitariaRepository.findAll(pageable).map(licensaSanitariaMapper::toResponse);
-        return PageDto.of(page);
+    public Page<LicensaSanitariaResponseDto> buscarLicensasSanitariaPagable(Pageable pageable){
+        return licensaSanitariaRepository.findAll(pageable).map(licensaSanitariaMapper::toResponse);
     }
 
     public LicensaSanitariaResponseDto buscarLicencaSanitariaByNumControle(String numControle){

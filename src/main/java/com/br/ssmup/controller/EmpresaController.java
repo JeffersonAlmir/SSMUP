@@ -3,6 +3,7 @@ package com.br.ssmup.controller;
 import com.br.ssmup.dto.*;
 import com.br.ssmup.service.EmpresaService;
 import jakarta.validation.Valid;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
@@ -30,7 +31,7 @@ public class EmpresaController {
 
     //Listar as empresas paginadas
     @GetMapping("pagination")
-    public ResponseEntity<PageDto<EmpresaResponseDto>> getAllEmpresasPage(@PageableDefault(page = 0, size = 10, sort = "razaoSocial", direction = Sort.Direction.ASC) Pageable pageable) {
+    public ResponseEntity<Page<EmpresaResponseDto>> getAllEmpresasPage(@PageableDefault(page = 0, size = 10, sort = "razaoSocial", direction = Sort.Direction.ASC) Pageable pageable) {
         return ResponseEntity.ok().body(empresaService.listarEmpresasPageable(pageable));
     }
 

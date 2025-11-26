@@ -3,6 +3,7 @@ package com.br.ssmup.controller;
 import com.br.ssmup.dto.LicensaSanitariaResponseDto;
 import com.br.ssmup.dto.PageDto;
 import com.br.ssmup.service.LicensaSanitariaService;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
@@ -30,7 +31,7 @@ public class LicensaSanitariaController {
     }
 
     @GetMapping("pagination")
-    public ResponseEntity<PageDto<LicensaSanitariaResponseDto>> getAllLicensasPage(@PageableDefault(page = 0, size = 10, sort = "numControle", direction = Sort.Direction.ASC) Pageable pageable){
+    public ResponseEntity<Page<LicensaSanitariaResponseDto>> getAllLicensasPage(@PageableDefault(page = 0, size = 10, sort = "numControle", direction = Sort.Direction.ASC) Pageable pageable){
         return ResponseEntity.ok(licensaSanitariaService.buscarLicensasSanitariaPagable(pageable));
     }
 
