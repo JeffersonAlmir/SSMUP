@@ -9,7 +9,6 @@ import jakarta.validation.constraints.NotNull;
 public record EnderecoCadastroDto(
         @NotBlank(message = "Rua é obrigatoria")
         String rua,
-        @NotBlank(message = "Numero é obrigatoria, se não houver coloque S/N")
         String numero,
         @NotBlank(message = "Bairro é obrigatorio")
         String bairro,
@@ -20,7 +19,6 @@ public record EnderecoCadastroDto(
         @NotNull(message = "Unidade federativa é obrigatoria")
         @Enumerated
         UnidadeFederativa uf,
-        @NotBlank(message = "Telefone é obrigatorio")
         String telefone
 ) {
 }

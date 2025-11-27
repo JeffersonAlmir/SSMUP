@@ -19,7 +19,7 @@ public class Endereco {
     @Column(nullable = false)
     private String rua;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String numero;
 
     @Column(nullable = false)
@@ -35,7 +35,7 @@ public class Endereco {
     @Column(nullable = false)
     private UnidadeFederativa uf;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String telefone;
 
     public Endereco() {}

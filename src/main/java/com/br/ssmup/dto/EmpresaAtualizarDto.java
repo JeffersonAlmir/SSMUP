@@ -8,7 +8,8 @@ import java.time.LocalDate;
 public record EmpresaAtualizarDto(
         String razaoSocial,
         String nomeFantasia,
-        String cpfCnpj,
+        String cnpj,
+        String email,
         String inscricaoEstadual,
         String atividadeFirma,
         String subAtividade,

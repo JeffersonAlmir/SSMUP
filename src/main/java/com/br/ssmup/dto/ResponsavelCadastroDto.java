@@ -7,9 +7,6 @@ import org.hibernate.validator.constraints.br.CPF;
 public record ResponsavelCadastroDto(
         @NotBlank(message = "Nome é obrigatorio")
         String nome,
-        @NotBlank(message = "Email é obrigatorio")
-        @Email(message = "Email Inválido")
-        String email,
         @NotBlank(message = "Cpf é obrigatorio")
         @CPF(message = "Cpf Inválido")
         String cpf,

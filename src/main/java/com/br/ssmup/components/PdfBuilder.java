@@ -80,7 +80,7 @@ public class PdfBuilder {
         text.append("Parecer técnico nº ").append(licensa.numControle()).append("\n\n");
         text.append("A coordenação de vigilância sanitária Municipal de Tacima/PB, baseado na Resolução RDC nº 275/2002 da ANVISA, ");
         text.append("autoriza o licenciamento sanitário no estabelecimento comercial ").append(empresa.atividadeFirma()).append(". ");
-        text.append("Nome fantasia: ").append(empresa.nomeFantasia()).append(", CNPJ: ").append(empresa.cpfCnpj()).append(", ");
+        text.append("Nome fantasia: ").append(empresa.nomeFantasia()).append(", CNPJ: ").append(empresa.cnpj()).append(", ");
         text.append("Inscrição estadual: ").append(empresa.inscricaoEstadual()).append(", ");
         text.append("Proprietário responsável: ").append(empresa.responsavel().nome()).append(", ");
         text.append("portador do RG: ").append(empresa.responsavel().rg()).append(" e CPF: ").append(empresa.responsavel().cpf()).append(".");

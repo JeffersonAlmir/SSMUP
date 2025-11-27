@@ -5,8 +5,6 @@ import org.hibernate.validator.constraints.br.CPF;
 
 public record ResponsavelAtualizarDto(
         String nome,
-        @Email
-        String email,
         @CPF
         String cpf,
         String rg,

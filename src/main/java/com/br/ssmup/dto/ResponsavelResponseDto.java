@@ -3,7 +3,6 @@ package com.br.ssmup.dto;
 public record ResponsavelResponseDto(
     Long id,
     String nome,
-    String email,
     String cpf,
     String rg,
     String escolaridade,

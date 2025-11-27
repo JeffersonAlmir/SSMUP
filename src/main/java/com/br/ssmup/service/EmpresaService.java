@@ -124,8 +124,8 @@ public class EmpresaService {
             empresa.setNomeFantasia(dto.nomeFantasia());
         }
 
-        if (dto.cpfCnpj() != null && !dto.cpfCnpj().isBlank()) {
-            empresa.setCpfCnpj(dto.cpfCnpj());
+        if (dto.cnpj() != null && !dto.cnpj().isBlank()) {
+            empresa.setCnpj(dto.cnpj());
         }
 
         if(dto.inscricaoEstadual() != null &&  !dto.inscricaoEstadual().isBlank()) {
@@ -191,10 +191,6 @@ public class EmpresaService {
 
         if(dto.nome() != null && !dto.nome().isBlank()) {
             responsavel.setNome(dto.nome());
-        }
-
-        if(dto.email() != null && !dto.email().isBlank()) {
-            responsavel.setEmail(dto.email());
         }
 
         if(dto.cpf() != null && !dto.cpf().isBlank()) {

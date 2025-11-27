@@ -2,9 +2,11 @@ package com.br.ssmup.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;
+import org.hibernate.validator.constraints.br.CNPJ;
 
 import java.time.LocalDate;
 
@@ -13,8 +15,11 @@ public record EmpresaCadastroDto(
         String razaoSocial,
         @NotBlank(message = "Nome fantasia é obrigatorio")
         String nomeFantasia,
-        @NotBlank(message = "Cpf ou Cnpj é obrigatorio")
-        String cpfCnpj,
+        @CNPJ
+        String cnpj,
+        @NotBlank(message = "Email é obrigatorio")
+        @Email(message = "Email Inválido")
+        String email,
         String inscricaoEstadual,
         @NotBlank(message = "Atividade da firma é obrigatoria")
         String atividadeFirma,

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -23,8 +24,8 @@ public class Empresa {
     @Column(name = "nome_fantasia", nullable = false)
     private String nomeFantasia;
 
-    @Column(name = "cpf_cnpj", nullable = false, unique = true)
-    private String cpfCnpj;
+    @Column(nullable = true, unique = true)
+    private String cnpj;
 
     @Column(name = "inscricao_estadual", unique = true)
     private String inscricaoEstadual;
@@ -40,7 +41,11 @@ public class Empresa {
     private LocalDate dataInicioFuncionamento;
 
     @Column(nullable = false)
-    private boolean ativo;
+    private boolean ativo = true;
+
+    @Email
+    @Column(nullable = false, unique = true)
+    private String email;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_responsavel", nullable = false)
@@ -62,17 +67,18 @@ public class Empresa {
     public Empresa() {
     }
 
-    public Empresa(String razaoSocial, String nomeFantasia, Long id, String cpfCnpj, String inscricaoEstadual, String atividadeFirma, String subAtividade, Responsavel responsavel, LocalDate dataInicioFuncionamento, boolean ativo, Endereco endereco, List<LicensaSanitaria> licensasSanitarias, Localizacao localizacao) {
+    public Empresa(String razaoSocial, Long id, String nomeFantasia, String cnpj, String inscricaoEstadual, String atividadeFirma, String subAtividade, LocalDate dataInicioFuncionamento, String email, Responsavel responsavel, Endereco endereco, List<LicensaSanitaria> licensasSanitarias, Localizacao localizacao) {
         this.razaoSocial = razaoSocial;
-        this.nomeFantasia = nomeFantasia;
         this.id = id;
-        this.cpfCnpj = cpfCnpj;
+        this.nomeFantasia = nomeFantasia;
+        this.cnpj = cnpj;
         this.inscricaoEstadual = inscricaoEstadual;
         this.atividadeFirma = atividadeFirma;
         this.subAtividade = subAtividade;
-        this.responsavel = responsavel;
         this.dataInicioFuncionamento = dataInicioFuncionamento;
-        this.ativo = ativo;
+        this.ativo = true;
+        this.email = email;
+        this.responsavel = responsavel;
         this.endereco = endereco;
         this.licensasSanitarias = licensasSanitarias;
         this.localizacao = localizacao;
@@ -102,12 +108,12 @@ public class Empresa {
         this.nomeFantasia = nomeFantasia;
     }
 
-    public String getCpfCnpj() {
-        return cpfCnpj;
+    public String getCnpj() {
+        return cnpj;
     }
 
-    public void setCpfCnpj(String cpfCnpj) {
-        this.cpfCnpj = cpfCnpj;
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
     }
 
     public String getInscricaoEstadual() {
@@ -166,6 +172,14 @@ public class Empresa {
         this.endereco = endereco;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public List<LicensaSanitaria> getLicensasSanitarias() {
         return licensasSanitarias;
     }
@@ -180,11 +194,6 @@ public class Empresa {
 
     public void setLocalizacao(Localizacao localizacao) {
         this.localizacao = localizacao;
-    }
-
-    @PrePersist
-    public void prePersist(){
-        this.ativo = true;
     }
 
     public void adicionarEndereco(Endereco endereco) {

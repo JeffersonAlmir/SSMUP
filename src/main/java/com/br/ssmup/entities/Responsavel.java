@@ -18,9 +18,6 @@ public class Responsavel {
     private String nome;
 
     @Column(unique = true, nullable = false)
-    private String email;
-
-    @Column(unique = true, nullable = false)
     private String cpf;
 
     @Column(nullable = false)
@@ -44,11 +41,10 @@ public class Responsavel {
 
     public Responsavel() {}
 
-    public Responsavel(Long id, String nome, String cpf, String email, String rg, String escolaridade, String formacao, String especializacao, String registroConselho, List<Empresa> empresas) {
+    public Responsavel(Long id, String nome, String cpf, String rg, String escolaridade, String formacao, String especializacao, String registroConselho, List<Empresa> empresas) {
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;
-        this.email = email;
         this.rg = rg;
         this.escolaridade = escolaridade;
         this.formacao = formacao;
@@ -72,15 +68,7 @@ public class Responsavel {
     public void setNome(String nome) {
         this.nome = nome;
     }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
+    
     public String getCpf() {
         return cpf;
     }
