@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -33,6 +34,18 @@ public class EmpresaController {
     @GetMapping("pagination")
     public ResponseEntity<Page<EmpresaResponseDto>> getAllEmpresasPage(@PageableDefault(page = 0, size = 10, sort = "razaoSocial", direction = Sort.Direction.ASC) Pageable pageable) {
         return ResponseEntity.ok().body(empresaService.listarEmpresasPageable(pageable));
+    }
+
+    //Listar as empresas com filtro
+    @GetMapping("filter")
+    public ResponseEntity<List<EmpresaResponseDto>> getAllEmpresasByFilter(EmpresaFilterDto filter){
+        return ResponseEntity.ok().body(empresaService.listarEmpresasFilter(filter));
+    }
+
+    //Listar as empresas paginadas com filtro
+    @GetMapping("pagination/filter")
+    public ResponseEntity<Page<EmpresaResponseDto>> getAllEmpresasPageByFilter(EmpresaFilterDto filter, Pageable pageable) {
+        return ResponseEntity.ok().body(empresaService.listarEmpresasPageableFilter(filter, pageable));
     }
 
     //Listar todas as empresas ativas
