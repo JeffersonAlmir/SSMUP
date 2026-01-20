@@ -23,6 +23,8 @@ public record EmpresaCadastroDto(
         String inscricaoEstadual,
         @NotBlank(message = "Atividade da firma é obrigatoria")
         String atividadeFirma,
+        @NotBlank(message = "O código do CNAE é obrigatório")
+        String cnaeCodigo,
         String subAtividade,
         @NotNull(message = "Data inicio de funcionamento não pode ser nula")
         @PastOrPresent

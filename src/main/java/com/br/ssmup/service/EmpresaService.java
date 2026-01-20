@@ -1,15 +1,13 @@
 package com.br.ssmup.service;
 
 import com.br.ssmup.dto.*;
-import com.br.ssmup.entities.Empresa;
-import com.br.ssmup.entities.Endereco;
-import com.br.ssmup.entities.LicensaSanitaria;
-import com.br.ssmup.entities.Responsavel;
+import com.br.ssmup.entities.*;
 import com.br.ssmup.exceptions.ResourceNotFoundException;
 import com.br.ssmup.mapper.EmpresaMapper;
 import com.br.ssmup.mapper.EnderecoMapper;
 import com.br.ssmup.mapper.LicensaSanitariaMapper;
 import com.br.ssmup.mapper.ResponsavelMapper;
+import com.br.ssmup.repository.CnaeRepository;
 import com.br.ssmup.repository.EmpresaRepository;
 import com.br.ssmup.repository.LicensaSanitariaRepository;
 import com.br.ssmup.repository.ResponsavelRepository;
@@ -32,8 +30,9 @@ public class EmpresaService {
     private final EnderecoMapper  enderecoMapper;
     private final ResponsavelMapper responsavelMapper;
     private final LicensaSanitariaMapper licensaMapper;
+    private final CnaeRepository  cnaeRepository;
 
-    public EmpresaService(EmpresaRepository empresaRepository, ResponsavelRepository responsavelRepository, LicensaSanitariaRepository licensaSanitariaRepository, EmpresaMapper empresaMapper, EnderecoMapper enderecoMapper, ResponsavelMapper responsavelMapper, LicensaSanitariaMapper licensaMapper) {
+    public EmpresaService(EmpresaRepository empresaRepository, ResponsavelRepository responsavelRepository, LicensaSanitariaRepository licensaSanitariaRepository, EmpresaMapper empresaMapper, EnderecoMapper enderecoMapper, ResponsavelMapper responsavelMapper, LicensaSanitariaMapper licensaMapper, CnaeRepository cnaeRepository) {
         this.empresaRepository = empresaRepository;
         this.responsavelRepository = responsavelRepository;
         this.licensaSanitariaRepository = licensaSanitariaRepository;
@@ -41,17 +40,26 @@ public class EmpresaService {
         this.enderecoMapper = enderecoMapper;
         this.responsavelMapper = responsavelMapper;
         this.licensaMapper = licensaMapper;
+        this.cnaeRepository = cnaeRepository;
     }
 
     @Transactional
     public EmpresaResponseDto saveEmpresa(EmpresaCadastroDto dto) {
         Empresa empresa = empresaMapper.toEntity(dto);
+
+        if(dto.cnaeCodigo() != null){
+            Cnae cnae = cnaeRepository.findByCodigo(dto.cnaeCodigo()).orElseThrow(() -> new RuntimeException("CNAE não encontrado: " + dto.cnaeCodigo()));
+            System.out.println(cnae.getRisco());
+            empresa.setCnaePrincipal(cnae);
+        }
+
         Responsavel responsavel = responsavelRepository.findByCpf(empresa.getResponsavel().getCpf()).orElse(null);
         if(responsavel == null){
             responsavelRepository.save(empresa.getResponsavel());
             return empresaMapper.toResponse(empresaRepository.save(empresa));
         }
         empresa.setResponsavel(responsavel);
+
         return empresaMapper.toResponse(empresaRepository.save(empresa));
     }
 
@@ -73,6 +81,7 @@ public class EmpresaService {
         return empresaRepository.findAll(pageable).map(empresaMapper::toResponse);
     }
 
+    //Retirar SPECIFICATIONS
     public List<EmpresaResponseDto> listarEmpresasFilter(EmpresaFilterDto filter) {
 
         Specification<Empresa> spec = EmpresaSpecifications.buildSpecification(filter);
@@ -82,6 +91,7 @@ public class EmpresaService {
                 .toList();
     }
 
+    //Retirar SPECIFICATIONS
     public Page<EmpresaResponseDto> listarEmpresasPageableFilter(EmpresaFilterDto filter, Pageable pageable) {
 
         Specification<Empresa> spec = EmpresaSpecifications.buildSpecification(filter);

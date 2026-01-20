@@ -64,16 +64,21 @@ public class Empresa {
     @JsonManagedReference
     private Localizacao localizacao;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "cnae_principal_codigo")
+    private Cnae cnaePrincipal;
+
     public Empresa() {
     }
 
-    public Empresa(String razaoSocial, Long id, String nomeFantasia, String cnpj, String inscricaoEstadual, String atividadeFirma, String subAtividade, LocalDate dataInicioFuncionamento, String email, Responsavel responsavel, Endereco endereco, List<LicensaSanitaria> licensasSanitarias, Localizacao localizacao) {
+    public Empresa(String razaoSocial, Long id, String nomeFantasia, String cnpj, String inscricaoEstadual, String atividadeFirma, String subAtividade, LocalDate dataInicioFuncionamento, String email, Responsavel responsavel, Endereco endereco, List<LicensaSanitaria> licensasSanitarias, Localizacao localizacao,  Cnae cnaePrincipal) {
         this.razaoSocial = razaoSocial;
         this.id = id;
         this.nomeFantasia = nomeFantasia;
         this.cnpj = cnpj;
         this.inscricaoEstadual = inscricaoEstadual;
         this.atividadeFirma = atividadeFirma;
+        this.cnaePrincipal = cnaePrincipal;
         this.subAtividade = subAtividade;
         this.dataInicioFuncionamento = dataInicioFuncionamento;
         this.ativo = true;
@@ -201,5 +206,13 @@ public class Empresa {
         if (endereco != null) {
             endereco.setEmpresa(this);
         }
+    }
+
+    public Cnae getCnaePrincipal() {
+        return cnaePrincipal;
+    }
+
+    public void setCnaePrincipal(Cnae cnaePrincipal) {
+        this.cnaePrincipal = cnaePrincipal;
     }
 }

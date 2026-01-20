@@ -17,6 +17,7 @@ public record EmpresaResponseDto(
         LocalDate dataInicioFuncionamento,
         boolean ativo,
         EnderecoResponseDto endereco,
-        ResponsavelResponseDto responsavel
+        ResponsavelResponseDto responsavel,
+        CnaeResponseDto cnae
 ) {
 }
