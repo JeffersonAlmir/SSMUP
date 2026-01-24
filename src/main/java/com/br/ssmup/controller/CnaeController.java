@@ -2,10 +2,9 @@ package com.br.ssmup.controller;
 
 import com.br.ssmup.entities.Cnae;
 import com.br.ssmup.repository.CnaeRepository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import com.br.ssmup.service.CnaeService;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -13,9 +12,11 @@ import java.util.List;
 @RequestMapping("v1/api/cnaes")
 public class CnaeController {
     private final CnaeRepository cnaeRepository;
+    private final CnaeService cnaeService; // Novo
 
-    public CnaeController(CnaeRepository cnaeRepository) {
+    public CnaeController(CnaeRepository cnaeRepository, CnaeService cnaeService) {
         this.cnaeRepository = cnaeRepository;
+        this.cnaeService = cnaeService;
     }
 
     @GetMapping
@@ -24,5 +25,15 @@ public class CnaeController {
             return cnaeRepository.buscarPorCodigoOuDescricao(busca);
         }
         return cnaeRepository.findAll();
+    }
+
+    @PostMapping("/popular")
+    public ResponseEntity<String> popularBanco() {
+        try {
+            String mensagem = cnaeService.popularBancoDeDados();
+            return ResponseEntity.ok(mensagem);
+        } catch (RuntimeException e) {
+            return ResponseEntity.internalServerError().body(e.getMessage());
+        }
     }
 }

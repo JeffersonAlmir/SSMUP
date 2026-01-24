@@ -1,0 +1,77 @@
+[
+  {
+    "codigo": "4781-4/00",
+    "descricao": "Comércio varejista de artigos do vestuário e acessórios",
+    "risco": "RISCO_I_BAIXO"
+  },
+  {
+    "codigo": "8211-3/00",
+    "descricao": "Serviços combinados de escritório e apoio administrativo",
+    "risco": "RISCO_I_BAIXO"
+  },
+  {
+    "codigo": "6201-5/01",
+    "descricao": "Desenvolvimento de programas de computador sob encomenda",
+    "risco": "RISCO_I_BAIXO"
+  },
+  {
+    "codigo": "6920-6/01",
+    "descricao": "Atividades de contabilidade",
+    "risco": "RISCO_I_BAIXO"
+  },
+  {
+    "codigo": "7319-0/02",
+    "descricao": "Promoção de vendas",
+    "risco": "RISCO_I_BAIXO"
+  },
+  {
+    "codigo": "5611-2/03",
+    "descricao": "Lanchonetes, casas de chá, de sucos e similares",
+    "risco": "RISCO_II_MEDIO"
+  },
+  {
+    "codigo": "9602-5/01",
+    "descricao": "Cabeleireiros, manicure e pedicure",
+    "risco": "RISCO_II_MEDIO"
+  },
+  {
+    "codigo": "4711-3/02",
+    "descricao": "Comércio varejista de mercadorias em geral (Supermercados)",
+    "risco": "RISCO_II_MEDIO"
+  },
+  {
+    "codigo": "5611-2/01",
+    "descricao": "Restaurantes e similares",
+    "risco": "RISCO_III_ALTO"
+  },
+  {
+    "codigo": "8610-1/01",
+    "descricao": "Atividades de atendimento hospitalar",
+    "risco": "RISCO_III_ALTO"
+  },
+  {
+    "codigo": "8630-5/03",
+    "descricao": "Atividade médica ambulatorial restrita a consultas",
+    "risco": "RISCO_II_MEDIO"
+  },
+  {
+    "codigo": "8630-5/02",
+    "descricao": "Atividade médica ambulatorial com recursos para realização de exames",
+    "risco": "RISCO_III_ALTO"
+  },
+  {
+    "codigo": "1091-1/01",
+    "descricao": "Fabricação de produtos de panificação industrial",
+    "risco": "RISCO_III_ALTO"
+  },
+  {
+    "codigo": "4771-7/01",
+    "descricao": "Comércio varejista de produtos farmacêuticos, sem manipulação de fórmulas",
+    "risco": "RISCO_III_ALTO"
+  },
+  {
+    "codigo": "8511-2/00",
+    "descricao": "Educação infantil - creche",
+    "risco": "RISCO_III_ALTO"
+  }
+]
