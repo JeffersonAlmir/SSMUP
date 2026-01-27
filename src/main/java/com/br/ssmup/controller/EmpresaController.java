@@ -103,6 +103,13 @@ public class EmpresaController {
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
+    //Ativar empresa por ID
+    @PutMapping ("{id}/ativar")
+    public ResponseEntity<Void> ativarEmpresa(@PathVariable Long id){
+        empresaService.ativarEmpresa(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
+
     //Buscar licensas sanitarias de uma empresa pelo ID
     @GetMapping("{id}/licensasSanitarias")
     public ResponseEntity<List<LicensaSanitariaResponseDto>> getAllLicensasSanitarias(@PathVariable Long id){
