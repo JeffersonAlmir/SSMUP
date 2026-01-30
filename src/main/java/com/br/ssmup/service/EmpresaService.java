@@ -149,6 +149,13 @@ public class EmpresaService {
     }
 
     @Transactional
+    public void realizarInspecao(Long id) {
+        Empresa empresa = empresaRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Empresa não encontrada"));
+        empresa.setInspecao(true);
+        empresaRepository.save(empresa);
+    }
+
+    @Transactional
     public EmpresaAtualizarDto atualizarEmpresa(Long id, EmpresaAtualizarDto dto) {
         Empresa empresa = empresaRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Empresa não encontrada"));
 

@@ -43,6 +43,9 @@ public class Empresa {
     @Column(nullable = false)
     private boolean ativo = true;
 
+    @Column(nullable = false)
+    private boolean inspecao = false;
+
     @Email
     @Column(nullable = false, unique = true)
     private String email;
@@ -81,7 +84,6 @@ public class Empresa {
         this.cnaePrincipal = cnaePrincipal;
         this.subAtividade = subAtividade;
         this.dataInicioFuncionamento = dataInicioFuncionamento;
-        this.ativo = true;
         this.email = email;
         this.responsavel = responsavel;
         this.endereco = endereco;
@@ -159,6 +161,14 @@ public class Empresa {
 
     public void setAtivo(boolean ativo) {
         this.ativo = ativo;
+    }
+
+    public boolean isInspecao() {
+        return inspecao;
+    }
+
+    public void setInspecao(boolean inspecao) {
+        this.inspecao = inspecao;
     }
 
     public Responsavel getResponsavel() {

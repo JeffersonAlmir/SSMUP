@@ -63,7 +63,9 @@ public class LicensaSanitariaService {
         RiscoSanitario riscoSanitario = empresa.getCnaePrincipal().getRisco();
 
         if(riscoSanitario == RiscoSanitario.RISCO_III_ALTO){
-            throw new RuntimeException("RISCO_III_ALTO_DETECTADO");
+            if(!empresa.isInspecao()){
+                throw new RuntimeException("RISCO_III_ALTO_DETECTADO");
+            }
         }
 
         LicensaSanitaria licensaParaImprimir = licensaSanitariaRepository
