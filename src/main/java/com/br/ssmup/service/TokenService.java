@@ -1,6 +1,7 @@
 package com.br.ssmup.service;
 
 import com.br.ssmup.entities.Usuario;
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
@@ -37,17 +38,16 @@ public class TokenService {
                 .compact();
     }
 
-    public String getSubject(String tokenJWT) {
-        try {
-            return Jwts.parser()
-                    .setSigningKey(getSigningKey())
-                    .build()
-                    .parseClaimsJws(tokenJWT)
-                    .getBody()
-                    .getSubject(); // Retorna o email
-        } catch (Exception e) {
-            return null;
-        }
+    public Claims validate(String token) {
+        return Jwts.parser()
+                .setSigningKey(getSigningKey())
+                .build()
+                .parseClaimsJws(token)
+                .getBody();
+    }
+
+    public long getExpiration() {
+        return expiration;
     }
 
 }

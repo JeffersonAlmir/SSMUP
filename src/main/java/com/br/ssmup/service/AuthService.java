@@ -1,6 +1,9 @@
 package com.br.ssmup.service;
 
+import com.br.ssmup.config.google.GoogleTokenVerifier;
 import com.br.ssmup.entities.Usuario;
+import com.br.ssmup.exceptions.AuthenticationException;
+import com.br.ssmup.exceptions.UnauthorizedException;
 import com.br.ssmup.repository.UsuarioRepository;
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken;
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdTokenVerifier;
@@ -14,38 +17,26 @@ import java.util.Collections;
 @Service
 public class AuthService {
 
-    @Value("${google.client.id}")
-    private String googleClientId;
-
     private final UsuarioRepository usuarioRepository;
     private final TokenService tokenService;
+    private final GoogleTokenVerifier googleTokenVerifier;
 
-    public AuthService(UsuarioRepository usuarioRepository, TokenService tokenService) {
+    public AuthService(UsuarioRepository usuarioRepository, TokenService tokenService, GoogleTokenVerifier googleTokenVerifier) {
         this.usuarioRepository = usuarioRepository;
         this.tokenService = tokenService;
+        this.googleTokenVerifier = googleTokenVerifier;
     }
 
-    public String loginGoogle(String tokenGoogle) {
-        try {
-            GoogleIdTokenVerifier verifier = new GoogleIdTokenVerifier.Builder(new NetHttpTransport(), new GsonFactory())
-                    .setAudience(Collections.singletonList(googleClientId))
-                    .build();
+    public String loginGoogle(String googleToken) {
 
-            GoogleIdToken idToken = verifier.verify(tokenGoogle);
-            if (idToken == null) {
-                throw new RuntimeException("Token do Google inválido ou expirado.");
-            }
+        var payload = googleTokenVerifier.verify(googleToken);
 
-            GoogleIdToken.Payload payload = idToken.getPayload();
-            String email = payload.getEmail();
+        String email = payload.getEmail();
 
-            Usuario usuario = usuarioRepository.findByEmail(email)
-                    .orElseThrow(() -> new RuntimeException("Acesso negado: Usuário não cadastrado."));
+        Usuario usuario = usuarioRepository.findByEmail(email).orElseThrow(() -> new UnauthorizedException("Usuário não autorizado"));
 
-            return tokenService.gerarToken(usuario);
+        return tokenService.gerarToken(usuario);
 
-        } catch (Exception e) {
-            throw new RuntimeException("Erro ao autenticar com Google: " + e.getMessage());
-        }
+
     }
 }

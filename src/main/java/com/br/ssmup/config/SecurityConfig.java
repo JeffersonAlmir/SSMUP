@@ -29,8 +29,8 @@ public class SecurityConfig {
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) //
 
                 .cors(cors -> cors.configurationSource(request -> {
-                    var config = new CorsConfiguration();
-                    config.setAllowedOrigins(List.of("http://localhost:5173", "http://127.0.0.1:5173"));
+                    CorsConfiguration config = new CorsConfiguration();
+                    config.setAllowedOrigins(List.of("http://localhost:5000"));
                     config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
                     config.setAllowedHeaders(List.of("*"));
                     config.setAllowCredentials(true);
@@ -39,9 +39,7 @@ public class SecurityConfig {
 
                 .authorizeHttpRequests(req -> {
                     req.requestMatchers(HttpMethod.POST, "/v1/api/auth/google").permitAll();
-                    req.requestMatchers(HttpMethod.GET, "/v1/api/cnaes/**").permitAll();
-                    req.requestMatchers(HttpMethod.POST, "/v1/api/auth/dev").permitAll();
-
+                    req.requestMatchers(HttpMethod.POST, "/v1/api/auth/teste").permitAll();
                     req.anyRequest().authenticated();
                 })
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
