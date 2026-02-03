@@ -33,7 +33,7 @@ public class AuthService {
 
         String email = payload.getEmail();
 
-        Usuario usuario = usuarioRepository.findByEmail(email).orElseThrow(() -> new UnauthorizedException("Usuário não autorizado"));
+        Usuario usuario = usuarioRepository.findByEmailAndAtivo(email, true).orElseThrow(() -> new UnauthorizedException("Usuário não autorizado"));
 
         return tokenService.gerarToken(usuario);
 

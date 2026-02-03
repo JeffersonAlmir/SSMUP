@@ -20,6 +20,7 @@ services:
     depends_on:
       - postgres
     environment:
+      GOOGLE_CLIENT_ID: 690914641866-so78ac62ua11t47ibur3a0tp9pnjjr3s.apps.googleusercontent.com
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/ssmup
       SPRING_DATASOURCE_USERNAME: ssmup
       SPRING_DATASOURCE_PASSWORD: 123456
