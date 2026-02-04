@@ -3,6 +3,7 @@ package com.br.ssmup.controller;
 import com.br.ssmup.dto.UsuarioCadastroDto;
 import com.br.ssmup.dto.UsuarioResponseDto;
 import com.br.ssmup.entities.Usuario;
+import com.br.ssmup.enums.Role;
 import com.br.ssmup.service.EmpresaService;
 import com.br.ssmup.service.UsuarioService;
 import jakarta.validation.Valid;
@@ -26,6 +27,13 @@ public class UsuarioController {
     @GetMapping
     public ResponseEntity<List<UsuarioResponseDto>> getAllUsuarios(){
         return ResponseEntity.ok().body(usuarioService.listarUsuarios());
+    }
+
+    @GetMapping("filter")
+    public ResponseEntity<List<UsuarioResponseDto>> getallUsuariosByFilter(
+        @RequestParam(required = false) Boolean ativo
+    ){
+        return ResponseEntity.ok().body(usuarioService.listarUsuariosByFilter(ativo));
     }
 
     @PostMapping

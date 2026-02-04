@@ -27,6 +27,17 @@ public class UsuarioService {
                 .toList();
     }
 
+    public List<UsuarioResponseDto> listarUsuariosByFilter(Boolean ativo){
+        if(ativo == null){
+            return usuarioRepository.findAll().stream()
+                    .map(usuarioMapper::toResponse)
+                    .toList();
+        }
+        return usuarioRepository.findByAtivo(ativo).stream()
+                .map(usuarioMapper::toResponse)
+                .toList();
+    }
+
     @Transactional
     public UsuarioResponseDto salvarUsuario(UsuarioCadastroDto dto){
         Usuario usuario = usuarioMapper.toEntity(dto);
