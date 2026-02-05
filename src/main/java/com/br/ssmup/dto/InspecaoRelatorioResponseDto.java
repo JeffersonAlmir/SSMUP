@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public record InspecaoRelatorioResponseDto(
+        Long id,
         String objetivoInspecao,
         String observacoes,
         LocalDate dataInspecao,
