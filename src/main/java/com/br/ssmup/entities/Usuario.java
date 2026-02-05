@@ -35,7 +35,6 @@ public class Usuario implements UserDetails {
     @Column(nullable = false)
     private Role role;
 
-    @Column(nullable = false)
     private boolean ativo = true;
 
     public Usuario() {};

@@ -1,31 +1,87 @@
+# ========================================
+# Docker Compose - SSMUP Backend
+# ========================================
+#
+# COMO USAR:
+#   1. docker-compose up -d
+#   2. docker-compose logs -f
+#   3. docker-compose down
+#   4. docker-compose build api
+#
+# PORTAS:
+#   - API: 8080
+#   - PostgreSQL: 5434
+# ========================================
+
 name: ssmup-back
+
 services:
+
+  # ========================================
+  # PostgreSQL - Banco de Dados
+  # ========================================
   postgres:
     image: postgres:15-alpine
-    container_name: ssmup_db
+    container_name: ssmup-postgres
+    restart: unless-stopped
     environment:
       POSTGRES_DB: ssmup
       POSTGRES_USER: ssmup
-      POSTGRES_PASSWORD: 123456
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-123456}
     ports:
       - "5434:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ssmup -d ssmup"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - ssmup-network
 
+  # ========================================
+  # Spring Boot API
+  # ========================================
   api:
-    build: .
-    container_name: ssmup_api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ssmup-api
+    restart: unless-stopped
     ports:
       - "8080:8080"
-    depends_on:
-      - postgres
     environment:
-      GOOGLE_CLIENT_ID: 690914641866-so78ac62ua11t47ibur3a0tp9pnjjr3s.apps.googleusercontent.com
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/ssmup
       SPRING_DATASOURCE_USERNAME: ssmup
-      SPRING_DATASOURCE_PASSWORD: 123456
+      SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD:-123456}
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
-      SPRING_JPA_SHOW_SQL: 'true'
+      SPRING_JPA_SHOW_SQL: "true"
 
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID}
+
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - ssmup-network
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: ssmup-pgadmin
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@ssmup.com
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD:-admin123}
+    ports:
+      - "5050:80"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - ssmup-network
 volumes:
   postgres_data:
+
+networks:
+  ssmup-network:
+    driver: bridge

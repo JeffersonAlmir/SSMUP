@@ -39,6 +39,7 @@ public class SecurityConfig {
 
                 .authorizeHttpRequests(req -> {
                     req.requestMatchers(HttpMethod.POST, "/v1/api/auth/google").permitAll();
+                    req.requestMatchers("/actuator/health").permitAll();
                     req.requestMatchers("v1/api/usuarios/**").hasRole("ADMIN");
                     req.anyRequest().authenticated();
                 })
