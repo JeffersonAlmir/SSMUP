@@ -1,8 +1,10 @@
 package com.br.ssmup.service;
 
+import com.br.ssmup.dto.UsuarioAtualizarDto;
 import com.br.ssmup.dto.UsuarioCadastroDto;
 import com.br.ssmup.dto.UsuarioResponseDto;
 import com.br.ssmup.entities.Usuario;
+import com.br.ssmup.enums.Role;
 import com.br.ssmup.exceptions.ResourceNotFoundException;
 import com.br.ssmup.mapper.UsuarioMapper;
 import com.br.ssmup.repository.UsuarioRepository;
@@ -56,5 +58,33 @@ public class UsuarioService {
         Usuario usuario = usuarioRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Usuario com id: " + id + " não econtrado"));
         usuario.setAtivo(true);
         usuarioRepository.save(usuario);
+    }
+
+    @Transactional
+    public UsuarioResponseDto atualizarUsuario(Long id, UsuarioAtualizarDto dto){
+
+        Usuario usuario = usuarioRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Usuario com id: " + id + "não encontrado"));
+
+        if(dto.nome() != null && !dto.nome().isBlank()){
+            usuario.setNome(dto.nome());
+        }
+
+        if(dto.email() != null && !dto.email().isBlank()){
+            usuario.setEmail(dto.email());
+        }
+
+        if(dto.cargo() != null && !dto.cargo().isBlank()){
+            usuario.setCargo(dto.cargo());
+        }
+
+        if(dto.matricula() != null && !dto.matricula().isBlank()){
+            usuario.setMatricula(dto.matricula());
+        }
+
+        if(dto.role() != null){
+            usuario.setRole(dto.role());
+        }
+
+        return usuarioMapper.toResponse(usuarioRepository.save(usuario));
     }
 }

@@ -1,5 +1,6 @@
 package com.br.ssmup.controller;
 
+import com.br.ssmup.dto.UsuarioAtualizarDto;
 import com.br.ssmup.dto.UsuarioCadastroDto;
 import com.br.ssmup.dto.UsuarioResponseDto;
 import com.br.ssmup.entities.Usuario;
@@ -51,5 +52,10 @@ public class UsuarioController {
     public ResponseEntity<Void> ativarUsuario(@PathVariable Long id){
         usuarioService.ativarUsuarioById(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
+
+    @PutMapping("{id}")
+    public ResponseEntity<UsuarioResponseDto> putUsuario(@PathVariable Long id, @RequestBody @Valid UsuarioAtualizarDto payload){
+        return ResponseEntity.ok(usuarioService.atualizarUsuario(id, payload));
     }
 }
