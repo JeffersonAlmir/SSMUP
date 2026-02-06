@@ -5,6 +5,9 @@ import com.br.ssmup.dto.LicensaSanitariaResponseDto;
 import com.br.ssmup.entities.Empresa;
 import com.br.ssmup.entities.LicensaSanitaria;
 import com.br.ssmup.enums.RiscoSanitario;
+import com.br.ssmup.exceptions.BusinessRuleException;
+import com.br.ssmup.exceptions.HighRiskInspectionException;
+import com.br.ssmup.exceptions.ResourceNotFoundException;
 import com.br.ssmup.mapper.EmpresaMapper;
 import com.br.ssmup.mapper.LicensaSanitariaMapper;
 import com.br.ssmup.repository.EmpresaRepository;
@@ -54,17 +57,17 @@ public class LicensaSanitariaService {
 
     public byte[] emitirAlvara(Long idEmpresa){
 
-        Empresa empresa = empresaRepository.findById(idEmpresa).orElseThrow(() -> new RuntimeException("Empresa não encontrada"));
+        Empresa empresa = empresaRepository.findById(idEmpresa).orElseThrow(() -> new ResourceNotFoundException("Empresa não encontrada"));
 
         if(empresa.getCnaePrincipal() == null){
-            throw new RuntimeException("Empresa sem CNAE vinculado. Atualize o cadastro.");
+            throw new BusinessRuleException("Empresa sem CNAE vinculado. Atualize o cadastro.");
         }
 
         RiscoSanitario riscoSanitario = empresa.getCnaePrincipal().getRisco();
 
         if(riscoSanitario == RiscoSanitario.RISCO_III_ALTO){
             if(!empresa.isInspecao()){
-                throw new RuntimeException("RISCO_III_ALTO_DETECTADO");
+                throw new HighRiskInspectionException("Empresa classificada como ALTO RISCO. Necessária inspeção prévia.");
             }
         }
 

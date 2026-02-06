@@ -36,21 +36,10 @@ public class LicensaSanitariaController {
 
     @PostMapping("/emitir/{idEmpresa}")
     public ResponseEntity<?> emitirLicensa(@PathVariable Long idEmpresa) {
-        try {
-            byte[] pdfBytes = licensaSanitariaService.emitirAlvara(idEmpresa);
-
-            return ResponseEntity.ok()
-                    .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=alvara_sanitario.pdf")
-                    .contentType(MediaType.APPLICATION_PDF)
-                    .body(pdfBytes);
-
-        } catch (RuntimeException e) {
-            if ("RISCO_III_ALTO_DETECTADO".equals(e.getMessage())) {
-                return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY) // 422
-                        .body("Empresa classificada como ALTO RISCO. Necessária inspeção prévia.");
-            }
-            return ResponseEntity.badRequest().body(e.getMessage());
-        }
+        return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=alvara_sanitario.pdf")
+                .contentType(MediaType.APPLICATION_PDF)
+                .body(licensaSanitariaService.emitirAlvara(idEmpresa));
     }
 
 }
