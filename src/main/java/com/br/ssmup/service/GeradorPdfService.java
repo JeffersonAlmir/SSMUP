@@ -34,11 +34,11 @@ public class GeradorPdfService {
         PdfFont font = pdfBuilder.getFont();
         PdfFont boldFont = pdfBuilder.getBoldFont();
 
-        Image logo = pdfBuilder.loadImage("/static/images/logo.png", 150, 140, HorizontalAlignment.LEFT);
-        if (logo != null){
-            logo.setFixedPosition(30,750);
-            document.add(logo);
-        }
+//        Image logo = pdfBuilder.loadImage("/static/images/logo.png", 150, 140, HorizontalAlignment.LEFT);
+//        if (logo != null){
+//            logo.setFixedPosition(30,750);
+//            document.add(logo);
+//        }
 
         Image brasao = pdfBuilder.loadImage("/static/images/brasao.png", 150, 150, HorizontalAlignment.CENTER);
         if (brasao != null){
