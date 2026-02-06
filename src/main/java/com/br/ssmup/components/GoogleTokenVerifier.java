@@ -1,4 +1,4 @@
-package com.br.ssmup.config.google;
+package com.br.ssmup.components;
 
 import com.br.ssmup.exceptions.AuthenticationException;
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken;
