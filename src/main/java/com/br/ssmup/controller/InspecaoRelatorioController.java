@@ -2,6 +2,7 @@ package com.br.ssmup.controller;
 
 import com.br.ssmup.dto.InspecaoRelatorioRequestDto;
 import com.br.ssmup.dto.InspecaoRelatorioResponseDto;
+import com.br.ssmup.dto.InspecaoRelatorioUpdateDto;
 import com.br.ssmup.service.InspecaoRelatorioService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -33,5 +34,10 @@ public class InspecaoRelatorioController {
     @PostMapping
     public ResponseEntity<InspecaoRelatorioResponseDto> postInspecaoRelatorio(@RequestBody @Valid InspecaoRelatorioRequestDto inspecaoRelatorioRequestDto){
         return ResponseEntity.status(HttpStatus.CREATED).body(inspecaoRelatorioService.salvarInspecaoRelatorio(inspecaoRelatorioRequestDto));
+    }
+
+    @PutMapping("{id}")
+    public ResponseEntity<InspecaoRelatorioResponseDto> putInspecaoRelatorio(@PathVariable Long id, @RequestBody @Valid InspecaoRelatorioUpdateDto payload){
+        return ResponseEntity.ok(inspecaoRelatorioService.atualizarInspecaoRelatorio(id, payload));
     }
 }

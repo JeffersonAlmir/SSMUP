@@ -2,21 +2,19 @@ package com.br.ssmup.dto;
 
 import com.br.ssmup.enums.StatusInspecao;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PastOrPresent;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 
-public record InspecaoRelatorioResponseDto(
-        Long id,
+public record InspecaoRelatorioUpdateDto(
         String objetivoInspecao,
         String observacoes,
+        @PastOrPresent
         @JsonFormat(pattern = "dd/MM/yyyy")
         LocalDate dataInspecao,
         StatusInspecao statusInspecao,
-        Long empresaId,
-        List<Long> usuariosId,
-        LocalDateTime createdAt,
-        LocalDateTime updateAt
+        List<Long> usuariosId
 ) {
 }
