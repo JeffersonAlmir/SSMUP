@@ -98,15 +98,15 @@ public class EmpresaController {
 
     //Inativar empresa por ID
     @DeleteMapping("{id}/inativar")
-    public ResponseEntity<Void> inativarEmpresa(@PathVariable Long id){
-        empresaService.inativarEmpresa(id);
+    public ResponseEntity<Void> inativarEmpresa(@PathVariable Long id, @RequestBody HistoricoSituacaoRequestDto payload){
+        empresaService.inativarEmpresa(id, payload.motivo());
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
     //Ativar empresa por ID
     @PutMapping ("{id}/ativar")
-    public ResponseEntity<Void> ativarEmpresa(@PathVariable Long id){
-        empresaService.ativarEmpresa(id);
+    public ResponseEntity<Void> ativarEmpresa(@PathVariable Long id, @RequestBody HistoricoSituacaoRequestDto payload){
+        empresaService.ativarEmpresa(id, payload.motivo());
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
@@ -127,5 +127,11 @@ public class EmpresaController {
     @PostMapping("{id}/licensasSanitarias")
     public ResponseEntity<LicensaSanitariaResponseDto> saveLincensaSanitaria(@PathVariable Long id, @RequestBody LicensaSanitariaCadastroDto payload){
         return ResponseEntity.status(HttpStatus.CREATED).body(empresaService.saveLicensaSanitaria(id,payload));
+    }
+
+    //Listar hitorico de situacoes da empresa, ativacao e inativacao.
+    @GetMapping("{id}/historico")
+    public ResponseEntity<List<HistoricoSituacaoResponseDto>> getAllHistorico(@PathVariable Long id){
+        return ResponseEntity.ok().body(empresaService.listarHistoricoSituacao(id));
     }
 }

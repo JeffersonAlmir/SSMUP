@@ -2,20 +2,17 @@ package com.br.ssmup.service;
 
 import com.br.ssmup.dto.*;
 import com.br.ssmup.entities.*;
+import com.br.ssmup.enums.TipoSituacao;
+import com.br.ssmup.exceptions.AuthenticationException;
 import com.br.ssmup.exceptions.ResourceNotFoundException;
-import com.br.ssmup.mapper.EmpresaMapper;
-import com.br.ssmup.mapper.EnderecoMapper;
-import com.br.ssmup.mapper.LicensaSanitariaMapper;
-import com.br.ssmup.mapper.ResponsavelMapper;
-import com.br.ssmup.repository.CnaeRepository;
-import com.br.ssmup.repository.EmpresaRepository;
-import com.br.ssmup.repository.LicensaSanitariaRepository;
-import com.br.ssmup.repository.ResponsavelRepository;
+import com.br.ssmup.mapper.*;
+import com.br.ssmup.repository.*;
 import com.br.ssmup.specifications.EmpresaSpecifications;
 import jakarta.transaction.Transactional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -31,8 +28,11 @@ public class EmpresaService {
     private final ResponsavelMapper responsavelMapper;
     private final LicensaSanitariaMapper licensaMapper;
     private final CnaeRepository  cnaeRepository;
+    private final UsuarioRepository usuarioRepository;
+    private final HistoricoSitucaoRepository  historicoSitucaoRepository;
+    private final HistoricoSituacaoMapper historicoSituacaoMapper;
 
-    public EmpresaService(EmpresaRepository empresaRepository, ResponsavelRepository responsavelRepository, LicensaSanitariaRepository licensaSanitariaRepository, EmpresaMapper empresaMapper, EnderecoMapper enderecoMapper, ResponsavelMapper responsavelMapper, LicensaSanitariaMapper licensaMapper, CnaeRepository cnaeRepository) {
+    public EmpresaService(EmpresaRepository empresaRepository, ResponsavelRepository responsavelRepository, LicensaSanitariaRepository licensaSanitariaRepository, EmpresaMapper empresaMapper, EnderecoMapper enderecoMapper, ResponsavelMapper responsavelMapper, LicensaSanitariaMapper licensaMapper, CnaeRepository cnaeRepository, UsuarioRepository usuarioRepository, HistoricoSitucaoRepository historicoSitucaoRepository, HistoricoSituacaoMapper historicoSituacaoMapper) {
         this.empresaRepository = empresaRepository;
         this.responsavelRepository = responsavelRepository;
         this.licensaSanitariaRepository = licensaSanitariaRepository;
@@ -41,6 +41,9 @@ public class EmpresaService {
         this.responsavelMapper = responsavelMapper;
         this.licensaMapper = licensaMapper;
         this.cnaeRepository = cnaeRepository;
+        this.usuarioRepository = usuarioRepository;
+        this.historicoSitucaoRepository = historicoSitucaoRepository;
+        this.historicoSituacaoMapper = historicoSituacaoMapper;
     }
 
     @Transactional
@@ -135,17 +138,19 @@ public class EmpresaService {
     }
 
     @Transactional
-    public void inativarEmpresa(Long id) {
+    public void inativarEmpresa(Long id, String motivo) {
         Empresa empresa = empresaRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Empresa não encontrada"));
         empresa.setAtivo(false);
         empresaRepository.save(empresa);
+        gravarHistoricoSituacao(motivo, empresa, TipoSituacao.INATIVACAO);
     }
 
     @Transactional
-    public void ativarEmpresa(Long id){
+    public void ativarEmpresa(Long id, String motivo) {
         Empresa empresa = empresaRepository.findById(id).orElseThrow(() ->  new ResourceNotFoundException("Empresa não encontrada"));
         empresa.setAtivo(true);
         empresaRepository.save(empresa);
+        gravarHistoricoSituacao(motivo, empresa, TipoSituacao.ATIVACAO);
     }
 
     @Transactional
@@ -264,5 +269,28 @@ public class EmpresaService {
         return responsavelMapper.toResponse(responsavel);
     }
 
+    public void gravarHistoricoSituacao(String motivo, Empresa empresa, TipoSituacao tipoSituacao) {
 
+        var authentication = SecurityContextHolder.getContext().getAuthentication();
+        if(authentication == null || !authentication.isAuthenticated()){
+            throw new AuthenticationException("Nenhum usuario autenticado encontrado");
+        }
+
+        Usuario usuario =  usuarioRepository.findByEmail((String) authentication.getPrincipal()).orElseThrow(()-> new ResourceNotFoundException("Usuario do token nao existe no banco"));
+
+        HistoricoSituacao historicoSituacao = new HistoricoSituacao();
+        historicoSituacao.setUsuario(usuario);
+        historicoSituacao.setEmpresa(empresa);
+        historicoSituacao.setMotivo(motivo);
+        historicoSituacao.setTipoSituacao(tipoSituacao);
+        historicoSitucaoRepository.save(historicoSituacao);
+    }
+
+    public List<HistoricoSituacaoResponseDto> listarHistoricoSituacao(Long id) {
+        List<HistoricoSituacao> historicoSituacaoList = historicoSitucaoRepository.findByEmpresaIdOrderByDataDesc(id);
+
+        return historicoSituacaoList.stream()
+                .map(historicoSituacaoMapper::toDto)
+                .toList();
+    }
 }
