@@ -54,6 +54,10 @@ public class InspecaoRelatorioService {
 
         Empresa empresa = empresaRepository.findById(inspecaoRelatorioRequestDto.empresaId()).orElseThrow(()-> new ResourceNotFoundException("Empresa com id: " + inspecaoRelatorioRequestDto.empresaId() + " não encontrada"));
 
+        if(inspecaoRelatorioRequestDto.statusInspecao().equals(StatusInspecao.APROVADA)){
+            empresa.setInspecao(true);
+            empresaRepository.save(empresa);
+        }
         List<Usuario> usuarios = usuarioRepository.findAllById(inspecaoRelatorioRequestDto.usuariosId());
 
         if(usuarios.isEmpty()){

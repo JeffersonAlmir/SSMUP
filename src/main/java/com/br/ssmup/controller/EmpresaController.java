@@ -150,13 +150,13 @@ public class EmpresaController {
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
-    //Realizar inspeção de Empresa por ID
-    @PutMapping("{id}/realizarInspecao")
-    @Operation(summary = "Registrar Inspeção", description = "Realiza a inspeção de uma empresa, utilizada em empresas de alto risco, para emissão de alvara.")
-    public ResponseEntity<Void> realizarInspecao(@PathVariable Long id){
-        empresaService.realizarInspecao(id);
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
-    }
+//    //Realizar inspeção de Empresa por ID
+//    @PutMapping("{id}/realizarInspecao")
+//    @Operation(summary = "Registrar Inspeção", description = "Realiza a inspeção de uma empresa, utilizada em empresas de alto risco, para emissão de alvara.")
+//    public ResponseEntity<Void> realizarInspecao(@PathVariable Long id){
+//        empresaService.realizarInspecao(id);
+//        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+//    }
 
     //Buscar licensas sanitarias de uma empresa pelo ID
     @GetMapping("{id}/licensasSanitarias")
