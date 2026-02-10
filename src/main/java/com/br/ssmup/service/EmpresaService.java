@@ -2,6 +2,7 @@ package com.br.ssmup.service;
 
 import com.br.ssmup.dto.*;
 import com.br.ssmup.entities.*;
+import com.br.ssmup.enums.StatusInspecao;
 import com.br.ssmup.enums.TipoSituacao;
 import com.br.ssmup.exceptions.AuthenticationException;
 import com.br.ssmup.exceptions.ResourceNotFoundException;
@@ -31,8 +32,10 @@ public class EmpresaService {
     private final UsuarioRepository usuarioRepository;
     private final HistoricoSitucaoRepository  historicoSitucaoRepository;
     private final HistoricoSituacaoMapper historicoSituacaoMapper;
+    private final InspecaoRelatorioRepository inspecaoRelatorioRepository;
 
-    public EmpresaService(EmpresaRepository empresaRepository, ResponsavelRepository responsavelRepository, LicensaSanitariaRepository licensaSanitariaRepository, EmpresaMapper empresaMapper, EnderecoMapper enderecoMapper, ResponsavelMapper responsavelMapper, LicensaSanitariaMapper licensaMapper, CnaeRepository cnaeRepository, UsuarioRepository usuarioRepository, HistoricoSitucaoRepository historicoSitucaoRepository, HistoricoSituacaoMapper historicoSituacaoMapper) {
+
+    public EmpresaService(EmpresaRepository empresaRepository, ResponsavelRepository responsavelRepository, LicensaSanitariaRepository licensaSanitariaRepository, EmpresaMapper empresaMapper, EnderecoMapper enderecoMapper, ResponsavelMapper responsavelMapper, LicensaSanitariaMapper licensaMapper, CnaeRepository cnaeRepository, UsuarioRepository usuarioRepository, HistoricoSitucaoRepository historicoSitucaoRepository, HistoricoSituacaoMapper historicoSituacaoMapper, InspecaoRelatorioRepository inspecaoRelatorioRepository) {
         this.empresaRepository = empresaRepository;
         this.responsavelRepository = responsavelRepository;
         this.licensaSanitariaRepository = licensaSanitariaRepository;
@@ -44,6 +47,7 @@ public class EmpresaService {
         this.usuarioRepository = usuarioRepository;
         this.historicoSitucaoRepository = historicoSitucaoRepository;
         this.historicoSituacaoMapper = historicoSituacaoMapper;
+        this.inspecaoRelatorioRepository = inspecaoRelatorioRepository;
     }
 
     @Transactional
@@ -124,9 +128,15 @@ public class EmpresaService {
                 .toList();
     }
 
-    public EmpresaResponseDto getEmpresaById(Long id) {
+    public EmpresaResponseStatusDto getEmpresaById(Long id) {
         Empresa empresa = empresaRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Empresa não encontrada"));
-        return empresaMapper.toResponse(empresa);
+        StatusInspecao status = inspecaoRelatorioRepository.findTopByEmpresaIdOrderByCreatedAtDesc(id).orElse(null).getStatusInspecao();
+        if(status == null){
+            status = StatusInspecao.PENDENTE;
+        }
+        EmpresaResponseDto empresaResponseDto = empresaMapper.toResponse(empresa);
+
+        return new EmpresaResponseStatusDto(empresaResponseDto, status);
     }
 
     @Transactional

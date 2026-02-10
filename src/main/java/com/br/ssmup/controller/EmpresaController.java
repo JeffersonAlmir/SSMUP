@@ -95,7 +95,7 @@ public class EmpresaController {
     //Buscar empresa por ID
     @GetMapping({"{id}"})
     @Operation(summary = "Detalhes da Empresa", description = "Busca uma empresa específica por ID.")
-    public ResponseEntity<EmpresaResponseDto> getEmpresas(@PathVariable Long id) {
+    public ResponseEntity<EmpresaResponseStatusDto> getEmpresas(@PathVariable Long id) {
         return ResponseEntity.ok().body(empresaService.getEmpresaById(id));
     }
 
