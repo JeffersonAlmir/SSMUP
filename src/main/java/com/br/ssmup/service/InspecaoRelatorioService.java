@@ -56,7 +56,7 @@ public class InspecaoRelatorioService {
 
         if(inspecaoRelatorioRequestDto.statusInspecao().equals(StatusInspecao.APROVADA)){
             empresa.setInspecao(true);
-            empresaRepository.save(empresa);
+            empresa = empresaRepository.save(empresa);
         }
         List<Usuario> usuarios = usuarioRepository.findAllById(inspecaoRelatorioRequestDto.usuariosId());
 
