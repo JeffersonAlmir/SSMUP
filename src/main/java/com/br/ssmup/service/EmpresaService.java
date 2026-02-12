@@ -130,16 +130,16 @@ public class EmpresaService {
 
     public EmpresaResponseStatusDto getEmpresaById(Long id) {
         Empresa empresa = empresaRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Empresa não encontrada"));
-        StatusInspecao status = inspecaoRelatorioRepository.findTopByEmpresaIdOrderByCreatedAtDesc(id).orElse(null).getStatusInspecao();
+//        StatusInspecao status = inspecaoRelatorioRepository.findTopByEmpresaIdOrderByCreatedAtDesc(id).orElse(null).getStatusInspecao();
 
-//        StatusInspecao status = inspecaoRelatorioRepository
-//                .findTopByEmpresaIdOrderByCreatedAtDesc(id)
-//                .map(InspecaoRelatorio::getStatusInspecao)
-//                .orElse(StatusInspecao.PENDENTE);
+        StatusInspecao status = inspecaoRelatorioRepository
+                .findTopByEmpresaIdOrderByCreatedAtDesc(id)
+                .map(InspecaoRelatorio::getStatusInspecao)
+                .orElse(StatusInspecao.PENDENTE);
 
-        if(status == null){
-            status = StatusInspecao.PENDENTE;
-        }
+//        if(status == null){
+//            status = StatusInspecao.PENDENTE;
+//        }
         EmpresaResponseDto empresaResponseDto = empresaMapper.toResponse(empresa);
 
         return new EmpresaResponseStatusDto(empresaResponseDto, status);
