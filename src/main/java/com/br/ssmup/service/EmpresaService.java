@@ -32,10 +32,9 @@ public class EmpresaService {
     private final UsuarioRepository usuarioRepository;
     private final HistoricoSitucaoRepository  historicoSitucaoRepository;
     private final HistoricoSituacaoMapper historicoSituacaoMapper;
-    private final InspecaoRelatorioRepository inspecaoRelatorioRepository;
 
 
-    public EmpresaService(EmpresaRepository empresaRepository, ResponsavelRepository responsavelRepository, LicensaSanitariaRepository licensaSanitariaRepository, EmpresaMapper empresaMapper, EnderecoMapper enderecoMapper, ResponsavelMapper responsavelMapper, LicensaSanitariaMapper licensaMapper, CnaeRepository cnaeRepository, UsuarioRepository usuarioRepository, HistoricoSitucaoRepository historicoSitucaoRepository, HistoricoSituacaoMapper historicoSituacaoMapper, InspecaoRelatorioRepository inspecaoRelatorioRepository) {
+    public EmpresaService(EmpresaRepository empresaRepository, ResponsavelRepository responsavelRepository, LicensaSanitariaRepository licensaSanitariaRepository, EmpresaMapper empresaMapper, EnderecoMapper enderecoMapper, ResponsavelMapper responsavelMapper, LicensaSanitariaMapper licensaMapper, CnaeRepository cnaeRepository, UsuarioRepository usuarioRepository, HistoricoSitucaoRepository historicoSitucaoRepository, HistoricoSituacaoMapper historicoSituacaoMapper) {
         this.empresaRepository = empresaRepository;
         this.responsavelRepository = responsavelRepository;
         this.licensaSanitariaRepository = licensaSanitariaRepository;
@@ -47,7 +46,6 @@ public class EmpresaService {
         this.usuarioRepository = usuarioRepository;
         this.historicoSitucaoRepository = historicoSitucaoRepository;
         this.historicoSituacaoMapper = historicoSituacaoMapper;
-        this.inspecaoRelatorioRepository = inspecaoRelatorioRepository;
     }
 
     @Transactional
@@ -128,21 +126,9 @@ public class EmpresaService {
                 .toList();
     }
 
-    public EmpresaResponseStatusDto getEmpresaById(Long id) {
+    public EmpresaResponseDto getEmpresaById(Long id) {
         Empresa empresa = empresaRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Empresa não encontrada"));
-//        StatusInspecao status = inspecaoRelatorioRepository.findTopByEmpresaIdOrderByCreatedAtDesc(id).orElse(null).getStatusInspecao();
-
-        StatusInspecao status = inspecaoRelatorioRepository
-                .findTopByEmpresaIdOrderByCreatedAtDesc(id)
-                .map(InspecaoRelatorio::getStatusInspecao)
-                .orElse(StatusInspecao.PENDENTE);
-
-//        if(status == null){
-//            status = StatusInspecao.PENDENTE;
-//        }
-        EmpresaResponseDto empresaResponseDto = empresaMapper.toResponse(empresa);
-
-        return new EmpresaResponseStatusDto(empresaResponseDto, status);
+        return empresaMapper.toResponse(empresa);
     }
 
     @Transactional
