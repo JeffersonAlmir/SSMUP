@@ -140,19 +140,18 @@ public class EmpresaService {
     }
 
     @Transactional
-    public void inativarEmpresa(Long id, String motivo) {
+    public void inativarEmpresa(Long id, HistoricoSituacaoRequestDto motivo) {
         Empresa empresa = empresaRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Empresa não encontrada"));
         empresa.setAtivo(false);
         empresaRepository.save(empresa);
-        gravarHistoricoSituacao(motivo, empresa, TipoSituacao.INATIVACAO);
+        gravarHistoricoSituacao(motivo.motivo(), empresa, TipoSituacao.INATIVACAO);
     }
 
     @Transactional
-    public void ativarEmpresa(Long id, String motivo) {
+    public void ativarEmpresa(Long id) {
         Empresa empresa = empresaRepository.findById(id).orElseThrow(() ->  new ResourceNotFoundException("Empresa não encontrada"));
         empresa.setAtivo(true);
         empresaRepository.save(empresa);
-        gravarHistoricoSituacao(motivo, empresa, TipoSituacao.ATIVACAO);
     }
 
 //    @Transactional

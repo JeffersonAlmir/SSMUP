@@ -135,18 +135,18 @@ public class EmpresaController {
     }
 
     //Inativar empresa por ID
-    @DeleteMapping("{id}/inativar")
+    @PatchMapping("{id}/inativar")
     @Operation(summary = "Inativar Empresa", description = "Realiza a exclusão lógica e registra o motivo no histórico.")
     public ResponseEntity<Void> inativarEmpresa(@PathVariable Long id, @RequestBody HistoricoSituacaoRequestDto payload){
-        empresaService.inativarEmpresa(id, payload.motivo());
+        empresaService.inativarEmpresa(id, payload);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
     //Ativar empresa por ID
     @PutMapping ("{id}/ativar")
     @Operation(summary = "Reativar Empresa", description = "Restaura o acesso da empresa e registra no histórico.")
-    public ResponseEntity<Void> ativarEmpresa(@PathVariable Long id, @RequestBody HistoricoSituacaoRequestDto payload){
-        empresaService.ativarEmpresa(id, payload.motivo());
+    public ResponseEntity<Void> ativarEmpresa(@PathVariable Long id){
+        empresaService.ativarEmpresa(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
