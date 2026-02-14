@@ -91,8 +91,17 @@ public class EmpresaSpecifications {
 
     public static Specification<Empresa> byAtivo(Boolean ativo) {
         return ((root, query, builder) -> {
-            if(ativo!=null && !ativo){
+            if(ativo!=null){
                 return builder.equal(root.get("ativo"), ativo);
+            }
+            return builder.conjunction();
+        });
+    }
+
+    public static Specification<Empresa> byInspecao(Boolean inspecao) {
+        return ((root, query, builder) -> {
+            if(inspecao!=null){
+                return builder.equal(root.get("inspecao"), inspecao);
             }
             return builder.conjunction();
         });
@@ -108,6 +117,7 @@ public class EmpresaSpecifications {
                 .and(EmpresaSpecifications.byAtividadeFirma(filter.atividadeFirma()))
                 .and(EmpresaSpecifications.bySubAtividade(filter.subAtividade()))
                 .and(EmpresaSpecifications.byDataInicioFuncionamento(filter.dataInicioFuncionamento()))
-                .and(EmpresaSpecifications.byAtivo(filter.ativo()));
+                .and(EmpresaSpecifications.byAtivo(filter.ativo()))
+                .and((EmpresaSpecifications.byInspecao(filter.inspecao())));
     }
 }

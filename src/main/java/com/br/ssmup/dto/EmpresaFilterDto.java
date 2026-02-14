@@ -12,6 +12,7 @@ public record EmpresaFilterDto(
         String atividadeFirma,
         String subAtividade,
         LocalDate dataInicioFuncionamento,
-        Boolean ativo
+        Boolean ativo,
+        Boolean inspecao
 ) {
 }

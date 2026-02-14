@@ -69,7 +69,8 @@ public class EmpresaController {
             @Parameter(name = "atividadeFirma", description = "Filtra por atividade da firma"),
             @Parameter(name = "subAtividade", description = "Filtra por sub atividade da firma"),
             @Parameter(name = "dataInicioFuncionamento", description = "Filtra por data de inicio de funcionamento"),
-            @Parameter(name = "ativo", description = "Filtra por status de empresa, ativa ou inativa", example = "true"),
+            @Parameter(name = "inspecao", description = "Filtra por inspecao feita ou nao feita"),
+            @Parameter(name = "ativo", description = "Filtra por status de empresa, ativa ou inativa"),
             @Parameter(name = "page", description = "Número da página (0..N)", example = "0"),
             @Parameter(name = "size", description = "Quantidade de itens por página", example = "10"),
             @Parameter(name = "sort", description = "Ordenação por atributo", example = "id")}
