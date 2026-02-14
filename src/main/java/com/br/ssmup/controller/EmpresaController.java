@@ -7,6 +7,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.PastOrPresent;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -178,5 +179,12 @@ public class EmpresaController {
     @Operation(summary = "Consultar Histórico", description = "Linha do tempo de ativações e inativações da empresa.")
     public ResponseEntity<List<HistoricoSituacaoResponseDto>> getAllHistorico(@PathVariable Long id){
         return ResponseEntity.ok().body(empresaService.listarHistoricoSituacao(id));
+    }
+
+    //Listar quantidades de empresas por risco, baixo, medio e alto
+    @GetMapping("risco")
+    @Operation(summary = "Consultar quantidades de empresas por risco", description = "Retorna um Json(DTO), contendo as quantidades de empresas de baixo, medio e alto risco")
+    public ResponseEntity<EmpresaRiscoResponseDto> getQtEmpresaRisco(){
+        return ResponseEntity.ok(empresaService.buscarQtEmpresasRisco());
     }
 }

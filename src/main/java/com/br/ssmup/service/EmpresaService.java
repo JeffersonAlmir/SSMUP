@@ -2,6 +2,7 @@ package com.br.ssmup.service;
 
 import com.br.ssmup.dto.*;
 import com.br.ssmup.entities.*;
+import com.br.ssmup.enums.RiscoSanitario;
 import com.br.ssmup.enums.StatusInspecao;
 import com.br.ssmup.enums.TipoSituacao;
 import com.br.ssmup.exceptions.AuthenticationException;
@@ -293,5 +294,12 @@ public class EmpresaService {
         return historicoSituacaoList.stream()
                 .map(historicoSituacaoMapper::toDto)
                 .toList();
+    }
+
+    public EmpresaRiscoResponseDto buscarQtEmpresasRisco(){
+        long qtBaixo = empresaRepository.countByCnaePrincipalRisco(RiscoSanitario.RISCO_I_BAIXO);
+        long qtMedio = empresaRepository.countByCnaePrincipalRisco(RiscoSanitario.RISCO_II_MEDIO);
+        long qtAlto = empresaRepository.countByCnaePrincipalRisco(RiscoSanitario.RISCO_III_ALTO);
+        return new EmpresaRiscoResponseDto(qtBaixo, qtMedio, qtAlto);
     }
 }
