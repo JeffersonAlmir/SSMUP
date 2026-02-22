@@ -260,6 +260,7 @@ public class EmpresaService {
         }
 
         Empresa empresaSalva = empresaRepository.save(empresa);
+        log.info("Empresa atualizada com sucesso");
         empresaSolrService.salvarNoSolr(empresaSalva);
         return empresaMapper.toUpdate(empresaSalva);
     }
