@@ -75,7 +75,6 @@ public class EmpresaService {
 
         if(dto.cnaeCodigo() != null){
             Cnae cnae = cnaeRepository.findByCodigo(dto.cnaeCodigo()).orElseThrow(() -> new RuntimeException("CNAE não encontrado: " + dto.cnaeCodigo()));
-            System.out.println(cnae.getRisco());
             empresa.setCnaePrincipal(cnae);
         }
 

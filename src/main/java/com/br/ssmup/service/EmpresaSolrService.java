@@ -75,7 +75,7 @@ public class EmpresaSolrService {
             return new PageImpl<>(beans, pageable, totalElementos);
 
         } catch (Exception e) {
-            log.error("Erro ao realizar busca no Solr pelo termo '{}':", termo, e);
+            log.error("Erro ao realizar busca no Solr pelo termo '{}':", termo);
             return Page.empty(pageable);
         }
     }

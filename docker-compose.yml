@@ -1,25 +1,13 @@
-# ========================================
-# Docker Compose - SSMUP Backend
-# ========================================
-#
 # COMO USAR:
 #   1. docker-compose up -d
 #   2. docker-compose logs -f
 #   3. docker-compose down
 #   4. docker-compose build api
-#
-# PORTAS:
-#   - API: 8080
-#   - PostgreSQL: 5434
-# ========================================
 
 name: ssmup-back
 
 services:
 
-  # ========================================
-  # PostgreSQL - Banco de Dados
-  # ========================================
   postgres:
     image: postgres:15-alpine
     container_name: ssmup-postgres
@@ -53,6 +41,26 @@ services:
       retries: 5
     networks:
       - ssmup-network
+
+  solr:
+    image: solr
+    container_name: ssmup-solr
+    restart: unless-stopped
+    ports:
+      - "8983:8983"
+    volumes:
+      - solr_data:/var/solr
+    command:
+      - solr-precreate
+      - empresas
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8983/solr/empresas/admin/ping" ]
+      interval: 60s
+      timeout: 5s
+      retries: 5
+      start_period: 40s
+    networks:
+      - ssmup-network
   # ========================================
   # Spring Boot API
   # ========================================
@@ -74,6 +82,8 @@ services:
       SPRING_REDIS_HOST: redis
       SPRING_REDIS_PORT: 6379
 
+      SOLR_URL: http://solr:8983/solr
+
       GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID}
 
     depends_on:
@@ -81,10 +91,13 @@ services:
         condition: service_healthy
       redis:
         condition: service_healthy
+      solr:
+        condition: service_healthy
     networks:
       - ssmup-network
 volumes:
   postgres_data:
+  solr_data:
 
 networks:
   ssmup-network:
