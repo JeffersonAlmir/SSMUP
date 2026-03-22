@@ -40,12 +40,16 @@ public class Usuario implements UserDetails {
     private Role role;
 
     @Column(nullable = false)
-    private boolean ativo = false;
+    private boolean ativo = true;
 
-    @Column(unique = true)
+    @Column(unique = true, name = "token_ativacao")
     private String tokenAtivacao;
 
+    @Column(name = "data_expiracao_token")
     private LocalDateTime dataExpiracaoToken;
+
+    @Column(name = "email_verificado", nullable = false)
+    private boolean emailVerificado = false;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -69,6 +73,6 @@ public class Usuario implements UserDetails {
     @Override
     public boolean isCredentialsNonExpired() { return true; }
     @Override
-    public boolean isEnabled() { return this.ativo; }
+    public boolean isEnabled() { return this.ativo && this.emailVerificado; }
 
 }

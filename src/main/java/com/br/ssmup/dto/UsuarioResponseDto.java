@@ -11,6 +11,7 @@ public record UsuarioResponseDto(
         String cargo,
         String matricula,
         Role role,
-        boolean ativo
+        boolean ativo,
+        boolean emailVerificado
 ) implements Serializable {
 }

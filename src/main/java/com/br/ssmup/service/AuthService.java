@@ -31,7 +31,7 @@ public class AuthService {
 
         String email = payload.getEmail();
 
-        Usuario usuario = usuarioRepository.findByEmailAndAtivo(email, true)
+        Usuario usuario = usuarioRepository.findByEmailAndAtivoAndEmailVerificado(email, true, true)
                 .orElseThrow( () -> {
                     log.error("Falha ao validar usuario com email {}", email);
                     return new UnauthorizedException("Usuário não autorizado");
@@ -55,9 +55,9 @@ public class AuthService {
             throw new BusinessRuleException("Token expirado para o usuario. Solicite um novo ao seu coodernador");
         }
 
-        usuario.setAtivo(true);
         usuario.setTokenAtivacao(null);
         usuario.setDataExpiracaoToken(null);
+        usuario.setEmailVerificado(true);
         usuarioRepository.save(usuario);
 
         log.info("Conta ativada com sucesso: {}", usuario.getEmail());
