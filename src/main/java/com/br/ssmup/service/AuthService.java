@@ -57,6 +57,7 @@ public class AuthService {
 
         usuario.setTokenAtivacao(null);
         usuario.setDataExpiracaoToken(null);
+        usuario.setAtivo(true);
         usuario.setEmailVerificado(true);
         usuarioRepository.save(usuario);
 

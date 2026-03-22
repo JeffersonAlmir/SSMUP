@@ -40,7 +40,7 @@ public class Usuario implements UserDetails {
     private Role role;
 
     @Column(nullable = false)
-    private boolean ativo = true;
+    private boolean ativo = false;
 
     @Column(unique = true, name = "token_ativacao")
     private String tokenAtivacao;
