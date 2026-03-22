@@ -7,6 +7,7 @@ import com.br.ssmup.entities.Usuario;
 import com.br.ssmup.enums.Role;
 import com.br.ssmup.service.EmpresaService;
 import com.br.ssmup.service.UsuarioService;
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
@@ -57,5 +58,12 @@ public class UsuarioController {
     @PutMapping("{id}")
     public ResponseEntity<UsuarioResponseDto> putUsuario(@PathVariable Long id, @RequestBody @Valid UsuarioAtualizarDto payload){
         return ResponseEntity.ok(usuarioService.atualizarUsuario(id, payload));
+    }
+
+    @PostMapping("{id}/reenviar-ativacao")
+    @Operation(summary = "Reenviar e-mail de ativação", description = "Gera novo token e reenvia o e-mail de ativação para o usuário.")
+    public ResponseEntity<Void> reenviarEmailAtivacao(@PathVariable Long id) {
+        usuarioService.reenviarEmailAtivacao(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 }

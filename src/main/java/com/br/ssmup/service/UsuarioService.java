@@ -5,23 +5,25 @@ import com.br.ssmup.dto.UsuarioCadastroDto;
 import com.br.ssmup.dto.UsuarioResponseDto;
 import com.br.ssmup.entities.Usuario;
 import com.br.ssmup.enums.Role;
+import com.br.ssmup.exceptions.BusinessRuleException;
 import com.br.ssmup.exceptions.ResourceNotFoundException;
 import com.br.ssmup.mapper.UsuarioMapper;
 import com.br.ssmup.repository.UsuarioRepository;
 import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
+
 @Service
+@RequiredArgsConstructor
 public class UsuarioService {
 
     private final UsuarioRepository usuarioRepository;
     private final UsuarioMapper usuarioMapper;
-
-    public UsuarioService(UsuarioRepository usuarioRepository, UsuarioMapper usuarioMapper) {
-        this.usuarioRepository = usuarioRepository;
-        this.usuarioMapper = usuarioMapper;
-    }
+    private final EmailService emailService;
 
     public List<UsuarioResponseDto> listarUsuarios(){
         return usuarioRepository.findAll().stream()
@@ -43,7 +45,32 @@ public class UsuarioService {
     @Transactional
     public UsuarioResponseDto salvarUsuario(UsuarioCadastroDto dto){
         Usuario usuario = usuarioMapper.toEntity(dto);
-        return usuarioMapper.toResponse(usuarioRepository.save(usuario));
+
+        String token = UUID.randomUUID().toString();
+        usuario.setTokenAtivacao(token);
+        usuario.setDataExpiracaoToken(LocalDateTime.now().plusHours(24));
+
+        Usuario salvo = usuarioRepository.save(usuario);
+
+        emailService.enviarEmailAtivacao(salvo.getEmail(), salvo.getNome(), token);
+
+        return usuarioMapper.toResponse(salvo);
+    }
+
+    @Transactional
+    public void reenviarEmailAtivacao(Long id){
+        Usuario usuario = usuarioRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Usuario com id: " + id + " não encontrado"));
+
+        if(usuario.isAtivo()){
+            throw new BusinessRuleException("Usuario ja esta ativo. Nao é necessario reenviar o email de ativação");
+        }
+
+        String novoToken = UUID.randomUUID().toString();
+        usuario.setTokenAtivacao(novoToken);
+        usuario.setDataExpiracaoToken(LocalDateTime.now().plusHours(24));
+        usuarioRepository.save(usuario);
+
+        emailService.enviarEmailAtivacao(usuario.getEmail(), usuario.getNome(), novoToken);
     }
 
     @Transactional
