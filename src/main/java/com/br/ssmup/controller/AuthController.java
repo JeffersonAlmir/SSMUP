@@ -9,11 +9,9 @@ import com.br.ssmup.service.TokenService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.PastOrPresent;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -35,6 +33,13 @@ public class AuthController {
     public ResponseEntity<AuthResponse> loginGoogle(@Valid @RequestBody GoogleLoginRequest request) {
         String jwt = authService.loginGoogle(request.token());
         return ResponseEntity.ok(new AuthResponse(jwt, "Bearer", tokenService.getExpiration()));
+    }
+
+    @GetMapping("/ativar-conta")
+    @Operation(summary = "Ativar conta", description = "Ativa a conta do usuario usando o token enviado por email.")
+    public ResponseEntity<Map<String, String>> ativarConta(@RequestParam String token) {
+        authService.ativarConta(token);
+        return ResponseEntity.ok(Map.of("message", "Conta ativado com sucesso"));
     }
 }
 

@@ -39,6 +39,7 @@ public class SecurityConfig {
 
                 .authorizeHttpRequests(req -> {
                     req.requestMatchers(HttpMethod.POST, "/v1/api/auth/google").permitAll();
+                    req.requestMatchers(HttpMethod.GET, "v1/api/auth/ativar-conta").permitAll();
                     req.requestMatchers("/actuator/health").permitAll();
                     req.requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll();
                     req.requestMatchers("v1/api/usuarios/filter").hasAnyRole("ADMIN", "USER");
